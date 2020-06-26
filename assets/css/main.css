@@ -19,7 +19,13 @@
 		width: 100% !important;
 	}
 }
-  
+
+:root {
+	--dark-gray: #4C4C4C;
+	--dark-navy: #495867;
+	--navy: #577399;
+	--peach: #FE5F55;
+}
 
 * {
 	margin: 0;
@@ -29,7 +35,7 @@
 nav {
 	display: flex;
 	align-items: center;
-	background-color: #495867;
+	background-color: var(--dark-navy);
 	height: 64px;
 	padding: 0rem 3rem;
 }
@@ -38,7 +44,7 @@ header {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: #577399;
+	background-color: var(--navy);
 	height: 191px;
 }
 
@@ -66,30 +72,41 @@ h3 {
 }
 
 h4 {
-	color: #4C4C4C;
+	color: var(--dark-gray);
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 600; 
 	font-size: 18px;
 	padding: .5rem 0;
 }
 
-p {
-	color: #4C4C4C;
+p, [mailto] {
+	color: var(--dark-gray);
 	font-family: 'Montserrat', sans-serif;
 	font-size: 18px;
 	font-weight: normal;
 	text-align: left;
-	padding: 1rem 0;
+}
+
+.grid-item p a {
+	padding: 0;
 }
 
 a {
 	display: inherit;
-	color: #FE5F55;
+	color: var(--peach);
 	font-family: 'Montserrat', sans-serif;
 	font-size: 18px;
 	font-weight: bold;
 	text-align: left;
 	padding: .5rem 0;
+	width: fit-content;
+	text-decoration: none;
+}
+
+.img-link {
+    margin: auto;
+	border-radius: 100%;
+	text-align: center;
 }
 
 .grid-container {
@@ -111,4 +128,23 @@ a {
 	width: 300px;
 	margin: 0 auto;
 	transition: all .5s;
+}
+
+/* Hover States */
+
+a, .grid-container img, .grid-item p a { /* Smooth Transition for each defined element */
+	transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+}
+
+.grid-container img:hover {
+	transform: scale(1.05);
+}
+
+a:hover {
+	color: var(--dark-gray);
+}
+
+.grid-item p a:hover {
+	color: var(--peach);
 }
