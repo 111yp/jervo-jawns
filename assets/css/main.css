@@ -2,14 +2,10 @@
 @media screen and (max-width: 1400px) {
 	.grid-container {
 		grid-template-columns: repeat(2, 1fr) !important;
-		transition: all .5s !important;
 	}
 }
 
 @media screen and (max-width: 850px) {
-	.grid-container, h1 {
-		transition: all .5s !important;
-	}
 	.grid-container {
 		grid-template-columns: repeat(1, 1fr) !important;
 	}
@@ -21,7 +17,6 @@
 @media screen and (max-width: 550px) {
 	.grid-item {
 		width: 100% !important;
-		transition: all .5s !important;
 	}
 }
   
@@ -59,6 +54,7 @@ h1 {
 	font-family: 'Montserrat', sans-serif;
 	font-weight: bold;
 	font-size: 48px;
+	transition: all .5s;
 }
 
 h3 {
@@ -101,6 +97,7 @@ a {
 	grid-gap: 4rem;
 	padding: 3rem 10vw;
 	grid-template-columns: repeat(3, 1fr);
+	transition: all .5s;
 }
 
 .grid-container img {
@@ -113,4 +110,5 @@ a {
 	text-align: center;
 	width: 300px;
 	margin: 0 auto;
+	transition: all .5s;
 }
