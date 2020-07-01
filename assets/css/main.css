@@ -25,6 +25,13 @@
 	--dark-navy: #495867;
 	--navy: #577399;
 	--peach: #FE5F55;
+
+	--pastel-red: #FFADAD;
+	--pastel-yellow: #FFD6A5;
+	--pastel-purple: #FFC6FF;
+	--pastel-green: #CAFFBF;
+	--pastel-cyan: #9BF6FF;
+	--pastel-blue: #A0C4FF;
 }
 
 * {
@@ -37,7 +44,11 @@ nav {
 	align-items: center;
 	background-color: var(--dark-navy);
 	height: 64px;
-	padding: 0rem 3rem;
+	padding: 0rem 1rem;
+}
+
+nav img {
+	width: 50px;
 }
 
 header {
@@ -67,24 +78,57 @@ h3 {
 	color: #000000;
 	font-family: 'Montserrat', sans-serif;
 	font-weight: bold;
-	font-size: 26px;
+	font-size: 36px;
 	padding-top: 1rem;
+}
+
+h3:after
+{
+    content:'';
+	display:block;
+	margin: .5rem auto;
+	width: 13rem;
+}
+
+.divider-red:after {
+	border: 2px solid var(--pastel-red);
+}
+
+.divider-yellow:after {
+	border: 2px solid var(--pastel-yellow);
+}
+
+.divider-purple:after {
+	border: 2px solid var(--pastel-purple);
+}
+
+.divider-green:after {
+	border: 2px solid var(--pastel-green);
+}
+
+.divider-cyan:after {
+	border: 2px solid var(--pastel-cyan);
+}
+
+.divider-blue:after {
+	border: 2px solid var(--pastel-blue);
 }
 
 h4 {
 	color: var(--dark-gray);
-	font-family: 'Montserrat', sans-serif;
-	font-weight: 600; 
-	font-size: 18px;
-	padding: .5rem 0;
+	font-family: 'Lato', sans-serif;
+	font-weight: 400; 
+	font-size: 17px;
+	padding: .25rem 0;
 }
 
 p, [mailto] {
 	color: var(--dark-gray);
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 18px;
 	font-weight: normal;
 	text-align: left;
+	padding: 1rem 0;
 }
 
 .grid-item p a {
@@ -125,9 +169,32 @@ a {
 
 .grid-item {
 	text-align: center;
-	width: 300px;
+	width: 340px;
 	margin: 0 auto;
 	transition: all .5s;
+}
+
+.portfolio-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--peach);
+	height: 40px;
+	border-radius: 8px;
+}
+
+.portfolio-button p {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: bold;
+	color: #F7F7FF;
+	margin: 0;
+    padding: 1rem;
+}
+
+.portfolio-button img {
+	width: 20px;
+	height: 20px;
+	padding: 1rem;
 }
 
 /* Hover States */
