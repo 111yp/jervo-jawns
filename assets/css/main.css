@@ -31,7 +31,7 @@
 	--pastel-purple: #FFC6FF;
 	--pastel-green: #CAFFBF;
 	--pastel-cyan: #9BF6FF;
-	--pastel-blue: #A0C4FF;
+    --pastel-blue: #A0C4FF;
     --hover-button-red: #D73B38;
 }
 
@@ -183,6 +183,7 @@ a {
 	background-color: var(--peach);
 	height: 40px;
 	border-radius: 8px;
+    -webkit-transition: background-color 0.3s ease;
     transition: background-color 0.3s ease;
 }
 
