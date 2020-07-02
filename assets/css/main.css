@@ -145,6 +145,7 @@ a {
 	text-align: left;
 	padding: .5rem 0;
 	width: fit-content;
+    width: -moz-fit-content;
 	text-decoration: none;
 }
 
