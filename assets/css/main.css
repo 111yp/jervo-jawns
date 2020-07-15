@@ -92,7 +92,7 @@ button {
 
 .menu-button {
 	position: absolute;
-	right: 1rem;
+	right: 0;
 }
 
 .menu-button img{
@@ -338,3 +338,53 @@ a:hover {
 	box-sizing: border-box;
 	max-width: 1400px;
 }
+
+/* Hamburger */
+
+.ham {
+	cursor: pointer;
+	-webkit-tap-highlight-color: transparent;
+	transition: transform 400ms;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+  }
+  .hamRotate.active {
+	transform: rotate(45deg);
+  }
+  .hamRotate180.active {
+	transform: rotate(180deg);
+  }
+  .line {
+	fill:none;
+	transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+	stroke: #F7F7FF;
+	stroke-width: 5.5;
+	stroke-linecap: round;
+  }
+
+  .ham .top {
+	stroke-dasharray: 40 160;
+  }
+  .ham .middle {
+	stroke-dasharray: 40 142;
+	transform-origin: 50%;
+	transition: transform 400ms;
+  }
+  .ham .bottom {
+	stroke-dasharray: 40 85;
+	transform-origin: 50%;
+	transition: transform 400ms, stroke-dashoffset 400ms;
+  }
+  .ham.active .top {
+	stroke-dashoffset: -64px;
+  }
+  .ham.active .middle {
+	transform: rotate(90deg);
+  }
+  .ham.active .bottom {
+	stroke-dashoffset: -64px;
+  }
+  
+  
