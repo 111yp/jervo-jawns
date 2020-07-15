@@ -41,6 +41,9 @@
 	.grid-item {
 		width: 100% !important;
 	}
+	#menu {
+		padding-top: 5rem !important;
+	}
 }
 
 :root {
