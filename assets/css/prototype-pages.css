@@ -3,12 +3,20 @@
 	padding: 0;
 }
 
-nav {
+.real-nav {
 	background-color: white;
 	height: 88px;
+	width: 100%;
+	top: 0;
+	position: fixed;
 	display: flex;
 	align-items: flex-end;
 	box-shadow: 1px 10px 20px 7px rgba(0, 0, 0, 0.15);
+}
+
+nav {
+	height: 88px;
+	width: 100%;
 }
 
 .back-btn {
