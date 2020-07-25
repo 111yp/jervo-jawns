@@ -1,0 +1,83 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+nav {
+	background-color: white;
+	height: 88px;
+	display: flex;
+	align-items: flex-end;
+	box-shadow: 1px 10px 20px 7px rgba(0, 0, 0, 0.15);
+}
+
+.back-btn {
+	position: fixed;
+    top: 33px;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	margin: 2rem;
+}
+
+.text-container {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	margin: 2rem;
+}
+
+.dropdown {
+	height: 45px;
+	width: 112px;
+	border: 3px solid #C8CCF8;
+	background-color: white;
+	border-radius: 50px;
+	margin: 0 1rem;
+	justify-content: center;
+    display: flex;
+	align-items: center;
+	box-shadow: 1px 10px 20px 7px rgba(0, 0, 0, 0.15);
+}
+
+.button {
+	padding: 1rem;
+	border: 3px solid #FF00BF;
+	border-radius: 50px;
+	background-color: white;
+	box-shadow: 1px 10px 20px 7px rgba(0, 0, 0, 0.15);
+	text-decoration: none;
+	font-family: 'Cabin', sans-serif;
+	font-size: 18px;
+	color: black;
+	font-weight: bold;
+}
+
+nav img {
+	padding: 1rem;
+}
+
+nav h1 {
+	padding: 1rem;
+	margin: 0 auto;
+}
+
+h1 {
+	font-family: 'Cabin', sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+h2 {
+	font-family: 'Cabin', sans-serif;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+p {
+	font-family: 'Cabin', sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+}
