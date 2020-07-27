@@ -57,7 +57,7 @@
                 } else {
                     echo "There is no data to display..";
                 }
-                ?>
+    ?>
 
                 </tbody>
             </table>
