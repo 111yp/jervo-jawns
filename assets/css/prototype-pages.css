@@ -13,27 +13,22 @@
 	*/
 }
 
-main
-
-.real-nav {
+nav {
 	background-color: white;
-	height: 88px;
 	width: 100%;
-	top: 0;
+	padding: 2rem 0;
 	position: fixed;
 	display: flex;
-	align-items: flex-end;
+	top: 0;
+	left: 0;
+	align-items: center;
+	justify-content: center;
 	box-shadow: 1px 10px 20px 7px rgba(0, 0, 0, 0.15);
 }
 
-nav {
-	height: 88px;
-	width: 100%;
-}
-
 .back-btn {
-	position: fixed;
-    top: 33px;
+    position: absolute;
+    left: 2rem;
 }
 
 .container {
@@ -80,15 +75,6 @@ nav {
 	background-color: #FFE5FD;
 	color: #FF00BF;
 	transition: all .2s ease-in-out;
-}
-
-nav img {
-	padding: 1rem;
-}
-
-nav h1 {
-	padding: 1rem;
-	margin: 0 auto;
 }
 
 h1 {
