@@ -3,6 +3,18 @@
 	padding: 0;
 }
 
+:root {
+	--forward-gradient: linear-gradient(90deg, rgba(182,215,244,1) 0%, rgba(255,128,223,1) 100%);
+	--backward-gradient: linear-gradient(90deg, rgba(255,128,223,1) 0%, rgba(182,215,244,1) 100%);
+	/*
+	Use like so:
+	background: var(--forward-gradient);
+	background: var(--backward-gradient);
+	*/
+}
+
+main
+
 .real-nav {
 	background-color: white;
 	height: 88px;
@@ -96,4 +108,56 @@ p {
 	font-size: 16px;
 	font-weight: bold;
 	text-align: center;
+}
+
+/* Data Blocks */
+
+.container.ride-data {
+	flex-direction: column;
+}
+
+.ride-data-card {
+    display: flex;
+    flex-direction: row;
+    margin: 1rem 0;
+    border-radius: .5rem;
+	padding: .33rem;
+	background: var(--forward-gradient);
+}
+
+.ride-data-card:nth-of-type(even) {
+	/* Selects every other card */
+	background: var(--backward-gradient);
+}
+
+.card-img-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+}
+
+.card-icon {
+	width: 2.5rem;
+}
+
+.card-content-area {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 75%;
+    border-radius: 0 .25rem .25rem 0;
+    background-color: white;
+	padding: 0.5rem 1rem;
+}
+
+.card-title {
+	text-align: left;
+	margin-bottom: .75rem;
+	font-weight: normal;
+}
+
+.card-data {
+	text-align: left;
+    font-size: 2rem;
 }
