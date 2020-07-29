@@ -12,6 +12,16 @@ function initCheck() {
 }
 
 function responsivenessCheck() {
-    var x = nav.clientHeight;
-    main.style.paddingTop = x+'px';
+    if (nav) {
+        var x = nav.clientHeight;
+        main.style.paddingTop = x+'px';
+    }
 }
+
+// Menu Btn
+
+$(document).ready(function(){
+    $("button").click(function(){
+        $("#menu").slideToggle("slow");
+    });
+});
