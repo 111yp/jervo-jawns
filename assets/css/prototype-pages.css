@@ -4,13 +4,17 @@
 }
 
 :root {
-	--forward-gradient: linear-gradient(90deg, rgba(182,215,244,1) 0%, rgba(255,128,223,1) 100%);
-	--backward-gradient: linear-gradient(90deg, rgba(255,128,223,1) 0%, rgba(182,215,244,1) 100%);
+	--forward-gradient: linear-gradient(90deg, rgb(182,215,244) 0%, rgb(255,128,223) 100%);
+	--backward-gradient: linear-gradient(90deg, rgb(255,128,223) 0%, rgb(182,215,244) 100%);
 	/*
 	Use like so:
 	background: var(--forward-gradient);
 	background: var(--backward-gradient);
 	*/
+}
+
+.shadow {
+	box-shadow: 1px 10px 20px 7px rgba(0, 0, 0, 0.15);
 }
 
 nav {
@@ -23,7 +27,7 @@ nav {
 	left: 0;
 	align-items: center;
 	justify-content: center;
-	box-shadow: 1px 10px 20px 7px rgba(0, 0, 0, 0.15);
+	z-index: 10;
 }
 
 .back-btn {
@@ -54,7 +58,6 @@ nav {
 	justify-content: center;
     display: flex;
 	align-items: center;
-	box-shadow: 1px 10px 20px 7px rgba(0, 0, 0, 0.15);
 }
 
 .button {
@@ -62,7 +65,6 @@ nav {
 	border: 3px solid #FF00BF;
 	border-radius: 50px;
 	background-color: white;
-	box-shadow: 1px 10px 20px 7px rgba(0, 0, 0, 0.15);
 	text-decoration: none;
 	font-family: 'Cabin', sans-serif;
 	font-size: 18px;
@@ -96,7 +98,90 @@ p {
 	text-align: center;
 }
 
-/* Data Blocks */
+/* Ride History Cards */
+
+.ride-history {
+	flex-direction: column;
+}
+
+.ride-history-card {
+    display: flex;
+    flex-direction: row;
+    margin: 1rem 0;
+    border-radius: .5rem;
+	padding: .33rem;
+	border: rgb(182,215,244) .2rem solid;
+}
+
+.ride-history-card .card-img-area {
+	display: flex;
+	flex-direction: column;
+	width: 20%;
+	padding: .5rem;
+}
+
+.ride-history-card .card-icon {
+	border: black .1rem solid;
+	border-radius: 50%;
+}
+
+.driver-name {
+	font-weight: normal;
+}
+
+.card-mid-area {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 60%;
+	padding: 0.2rem .75rem;
+}
+
+.card-mid-area * + *, .card-pickup, .driver-name, .ride-history-card .card-title  {
+	text-align: left;
+	font-weight: normal;
+	margin: 0;
+	font-size: 12px;
+}
+
+.ride-history-card .card-title {
+	font-size: unset;
+	font-weight: bold;
+}
+
+.card-pickup, .card-mid-top {
+	margin-bottom: .75rem;
+}
+
+.card-mid-btm {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.location-icons {
+    margin-right: .5rem;
+}
+
+.location-a-b {
+    transform: scale(1.5) translateY(1.5px);
+}
+
+.card-end-area {
+    display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+    flex-direction: column;
+	width: 20%;
+	padding: .5rem;
+}
+
+.card-view-btn {
+	transform: rotate(180deg);
+	width: 1rem;
+}
+
+/* Ride Data Cards */
 
 .container.ride-data {
 	flex-direction: column;
@@ -124,7 +209,7 @@ p {
 }
 
 .card-icon {
-	width: 2.5rem;
+	width: 2rem;
 }
 
 .card-content-area {
