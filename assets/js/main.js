@@ -12,7 +12,8 @@ function initCheck() {
 }
 
 function responsivenessCheck() {
-    if (nav) {
+    // Check if nav contains class 'index-nav', if so, do not perform the function
+    if (!['.index-nav']) {
         var x = nav.clientHeight;
         main.style.paddingTop = x+'px';
     }
