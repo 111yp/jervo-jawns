@@ -1,3 +1,11 @@
+// Index Menu Btn
+
+$(document).ready(function(){
+    $("button").click(function(){
+        $("#menu").slideToggle("slow");
+    });
+});
+
 // Set top padding to main based on nav height
 
 const nav = document.querySelector('nav');
@@ -18,11 +26,3 @@ function responsivenessCheck() {
         main.style.paddingTop = x+'px';
     }
 }
-
-// Menu Btn
-
-$(document).ready(function(){
-    $("button").click(function(){
-        $("#menu").slideToggle("slow");
-    });
-});
