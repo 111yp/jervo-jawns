@@ -9,8 +9,6 @@
       <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet"> 
       <link rel="stylesheet" href="assets\css\main.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-      <script src="assets/js/main.js"></script>
    </head>
 
    <nav class="fixed index-nav">
@@ -128,4 +126,13 @@
          </div>
       </div>
    </body>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script>
+      // Index Menu Btn
+      $(document).ready(function(){
+         $("button").click(function(){
+            $("#menu").slideToggle("slow");
+         });
+      });
+   </script>
 </html>
