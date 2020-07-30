@@ -38,7 +38,7 @@ nav {
 .container {
 	display: flex;
 	justify-content: center;
-	margin: 2rem;
+	margin: 2rem 0;
 }
 
 .text-container {
@@ -72,6 +72,25 @@ nav {
 	font-weight: bold;
 }
 
+.export {
+	margin-left: 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	border-radius: 7px;
+	border: 1.5px solid #FF00BF;
+	width: 48px;
+	height: 27px;
+	font-family: Cabin;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 10px;
+	line-height: 12px;
+	color: black;
+
+}
+
 .button:hover {
 	border: 3px solid #FF00BF;
 	background-color: #FFE5FD;
@@ -102,6 +121,7 @@ p {
 
 .ride-history {
 	flex-direction: column;
+	margin: 2rem;
 }
 
 .ride-history-card {
@@ -185,6 +205,7 @@ p {
 
 .container.ride-data {
 	flex-direction: column;
+	margin: 2rem;
 }
 
 .ride-data-card {
