@@ -35,6 +35,10 @@ nav {
     left: 2rem;
 }
 
+.back-btn:active, .back-btn:hover {
+	fill: #FF00BF;
+}
+
 .container {
 	display: flex;
 	justify-content: center;
@@ -88,7 +92,10 @@ nav {
 	font-size: 10px;
 	line-height: 12px;
 	color: black;
+}
 
+.export:active, .export:hover {
+	color: #FF00BF
 }
 
 .button:hover {
