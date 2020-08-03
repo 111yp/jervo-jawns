@@ -35,6 +35,16 @@ nav {
     left: 2rem;
 }
 
+.nav-header {
+	display: flex;
+	margin: 0 auto;
+	padding-bottom: 0.25em;
+}
+
+.nav-header img {
+	padding-right: 0.5em;
+}
+
 .container {
 	display: flex;
 	justify-content: center;
@@ -77,6 +87,11 @@ nav {
 	background-color: #FFE5FD;
 	color: #FF00BF;
 	transition: all .2s ease-in-out;
+}
+
+.back-btn-svg:hover {
+	filter: invert(.5) sepia(1) saturate(5) hue-rotate(-75deg);
+	transition: 0.3s;
 }
 
 h1 {
