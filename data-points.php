@@ -237,7 +237,8 @@
                     <!-- Google Column Chart JS https://developers.google.com/chart/interactive/docs/gallery/columnchart -->
 
                     <?php
-                        $sql = "SELECT 
+                        $sql =
+                            "SELECT 
                             SUM(CASE WHEN price BETWEEN 1  AND 5  THEN 1 ELSE 0 END) AS '1-5',
                             SUM(CASE WHEN price BETWEEN 6  AND 10 THEN 1 ELSE 0 END) AS '6-10',
                             SUM(CASE WHEN price BETWEEN 11 AND 15 THEN 1 ELSE 0 END) AS '11-15',
@@ -248,6 +249,7 @@
                         $result = mysqli_query($connection, $sql);
                         $row = mysqli_fetch_assoc($result);
                     ?>
+                    <div class="chart-bar" style="width: 800px; height: 600px;"></div>
 
                     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
                         <script type="text/javascript">
@@ -278,11 +280,11 @@
                                 bar: { groupWidth: "90%" }
                                 };
 
-                            var chart = new google.charts.Bar(document.getElementById('top_x_div'));
+                            var chart = new google.charts.Bar(document.querySelector('.chart-bar'));
                             chart.draw(data, google.charts.Bar.convertOptions(options));
                         };
                             </script>
-                            <div id="top_x_div" style="width: 800px; height: 600px;"></div>
+                            
             </section>
             <section>
 

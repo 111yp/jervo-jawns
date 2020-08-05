@@ -275,3 +275,33 @@ p {
 	text-align: left;
     font-size: 2rem;
 }
+
+/* Frequently Visited Locations Chart */
+
+.container.frequent-locations {
+    display: flex;
+	flex-direction: column;
+	margin: auto;
+	padding: 1rem;
+	border-radius: 1rem;
+}
+
+.frequent-locations-li {
+    display: flex;
+    flex-direction: row;
+	padding-bottom: 1rem;
+}
+
+.frequent-list-num-area {
+	width: 10%;
+	color: #276DF6;
+}
+
+.frequent-list-main-area {
+    border-bottom: #FF80DF 2px solid;
+    padding-bottom: 1rem;
+}
+
+.frequent-p {
+    font-weight: normal;
+}

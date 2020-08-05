@@ -69,7 +69,7 @@
                   </div>
                </div>
                <div class="card-end-area">
-                  <p class="card-price">$<?php echo $row['price']; ?></p>
+                  <p class="card-price"><?php echo '$'.$row['price']; ?></p>
                   <img class="card-view-btn" src="assets/svg/back.svg" alt="View Btn">
                </div>
             </div>

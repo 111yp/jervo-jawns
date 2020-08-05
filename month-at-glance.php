@@ -36,70 +36,235 @@
          <!-- THE DATA -->
 
          <div class="container ride-data">
+
+            <!-- Total spent this month -->
+            <?php
+               $sql = "SELECT SUM(price) AS value_sum FROM ride_data WHERE MONTH(date) = $month AND YEAR(date) = $year";
+               $result = mysqli_query($connection, $sql);
+               $row = mysqli_fetch_assoc($result);
+            ?>
+
             <div class="ride-data-card shadow">
                <div class="card-img-area">
                   <img class="card-icon" src="assets/svg/money.svg" alt="money">
                </div>
                <div class="card-content-area">
                   <p class="card-title">Total spent this month</p>
-                  <p class="card-data">$178.32</p>
+                  <p class="card-data"><?php echo '$'.$row['value_sum']; ?></p>
                </div>
             </div>
+
+            <!-- Total rides taken this month -->
+            <?php
+               $sql = "SELECT COUNT(ride_id) AS value_sum FROM ride_data WHERE MONTH(date) = $month AND YEAR(date) = $year";
+               $result = mysqli_query($connection, $sql);
+               $row = mysqli_fetch_assoc($result);
+            ?>
+
             <div class="ride-data-card shadow">
                <div class="card-img-area">
                   <img class="card-icon" src="assets/svg/car.svg" alt="car">
                </div>
                <div class="card-content-area">
                   <p class="card-title">Total rides taken this month</p>
-                  <p class="card-data">40 rides</p>
+                  <p class="card-data"><?php echo $row['value_sum'].' rides'; ?></p>
                </div>
             </div>
+
+            <!-- Average cost per Ride -->
+            <?php
+               $sql = "SELECT AVG(price) AS value_avg FROM ride_data WHERE MONTH(date) = $month AND YEAR(date) = $year";
+               $result = mysqli_query($connection, $sql);
+               $row = mysqli_fetch_assoc($result);
+            ?>
+
             <div class="ride-data-card shadow">
                <div class="card-img-area">
                   <img class="card-icon" src="assets/svg/car-building.svg" alt="building">
                </div>
                <div class="card-content-area">
                   <p class="card-title">Average cost per Ride</p>
-                  <p class="card-data">$9.49</p>
+                  <p class="card-data"><?php echo '$'.number_format((float)$row['value_avg'], 2, '.', ''); ?></p>
                </div>
             </div>
+
+            <!-- Average distance per Ride -->
+            <?php
+               $sql = "SELECT AVG(distance) AS value_avg FROM ride_data WHERE MONTH(date) = $month AND YEAR(date) = $year";
+               $result = mysqli_query($connection, $sql);
+               $row = mysqli_fetch_assoc($result);
+            ?>
+
             <div class="ride-data-card shadow">
                <div class="card-img-area">
                   <img class="card-icon" src="assets/svg/route.svg" alt="route">
                </div>
                <div class="card-content-area">
                   <p class="card-title">Average distance per Ride</p>
-                  <p class="card-data">3.11 mi</p>
+                  <p class="card-data"><?php echo number_format((float)$row['value_avg'], 2, '.', '').' mi'; ?></p>
                </div>
             </div>
+
+            <!-- Most common ride type -->
+            <?php
+               $sql = "SELECT `type`, COUNT(`type`) AS `value_occurrence` FROM `ride_data` WHERE MONTH(date) = $month AND YEAR(date) = $year GROUP BY `type` ORDER BY `value_occurrence` DESC LIMIT 1;";
+               $result = mysqli_query($connection, $sql);
+               $row = mysqli_fetch_assoc($result);
+            ?>
             <div class="ride-data-card shadow">
                <div class="card-img-area">
                   <img class="card-icon" src="assets/svg/two-cars.svg" alt="two-cars">
                </div>
                <div class="card-content-area">
                   <p class="card-title">Most common ride type</p>
-                  <p class="card-data">Lyft XL</p>
+                  <p class="card-data"><?php echo ucwords($row['type']); ?></p>
                </div>
             </div>
+
+            <!-- Total coupon & promo savings -->
+            <?php
+               $sql = "SELECT SUM(discount) AS value_sum FROM ride_data WHERE MONTH(date) = $month AND YEAR(date) = $year";
+               $result = mysqli_query($connection, $sql);
+               $row = mysqli_fetch_assoc($result);
+            ?>
+
             <div class="ride-data-card shadow">
                <div class="card-img-area">
                   <img class="card-icon" src="assets/svg/coupon.svg" alt="coupon">
                </div>
                <div class="card-content-area">
                   <p class="card-title">Total coupon & promo savings</p>
-                  <p class="card-data">$13.98</p>
+                  <p class="card-data"><?php echo '$'.$row['value_sum'] ?></p>
                </div>
             </div>
+
+         </div> <!-- END OF CONTAINER -->
+
+         <div class="container">
+            <h2>Most common ride type</h2>
          </div>
 
-         <div class="text-container">
-            <p>Most common ride type</p>
-            <img src="assets/svg/prototype/commonRideType_ridingData.svg">
-            <p>Common price ranges</p>
-            <img src="assets/svg/prototype/commonPriceRanges_ridingData.svg">
-            <p>Frequently visited locations</p>
-            <img src="assets/svg/prototype/frequentlyVisited_ridingData.svg">
+         <!-- Most common ride type -->
+         <div class="container chart-pie shadow">
+            <?php
+               $sql = "SELECT `type`, COUNT(*) AS `value_occurrence` FROM `ride_data` WHERE MONTH(date) = $month AND YEAR(date) = $year GROUP BY `type`;";
+               $result = mysqli_query($connection, $sql);
+            ?>
+            <!-- Google Pie Chart JS https://developers.google.com/chart/interactive/docs/gallery/piechart -->
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script type="text/javascript">
+               // Load google charts
+               google.charts.load('current', {'packages':['corechart']});
+               google.charts.setOnLoadCallback(drawChart);
+
+               // Draw the chart and set the chart values
+               function drawChart() {
+                  var data = google.visualization.arrayToDataTable([
+                     ['Type', '# per month'],
+                     <?php
+                        if (mysqli_num_rows($result) > 0) {
+                           while ($row = mysqli_fetch_array($result)) {
+                              echo "['{$row['type']}', {$row['value_occurrence']}],";
+                        }}
+                     ?>
+               ]);
+
+               // Optional; add a title and set the width and height of the chart
+               var options = {'title':'Most Common Ride Type', 'width':550, 'height':400};
+
+               // Display the chart inside the <div> element with id="piechart"
+               var chart = new google.visualization.PieChart(document.querySelector('.chart-pie'));
+               chart.draw(data, options);
+               }
+            </script>
          </div>
+
+         <div class="container">
+            <h2>Common price ranges</h2>
+         </div>
+
+         <!-- Common price ranges -->
+         <?php
+            $sql =
+               "SELECT 
+               SUM(CASE WHEN price BETWEEN 1  AND 5  THEN 1 ELSE 0 END) AS '1-5',
+               SUM(CASE WHEN price BETWEEN 6  AND 10 THEN 1 ELSE 0 END) AS '6-10',
+               SUM(CASE WHEN price BETWEEN 11 AND 15 THEN 1 ELSE 0 END) AS '11-15',
+               SUM(CASE WHEN price BETWEEN 16 AND 20 THEN 1 ELSE 0 END) AS '16-20',
+               SUM(CASE WHEN price >= 20 THEN 1 ELSE 0 END) AS '20+'
+               FROM ride_data
+               WHERE MONTH(date) = $month AND YEAR(date) = $year;";
+            $result = mysqli_query($connection, $sql);
+            $row = mysqli_fetch_assoc($result);
+         ?>
+
+         <div class="chart-bar shadow" style="width: 400px; height: 300px;"></div>
+         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script type="text/javascript">
+            google.charts.load('current', {'packages':['bar']});
+            google.charts.setOnLoadCallback(drawStuff);
+
+            function drawStuff() {
+               var data = new google.visualization.arrayToDataTable([
+                  ['Range', 'Occurrence'],
+                  ["$1-5", <?php echo $row['1-5']; ?>],
+                  ["$6-10", <?php echo $row['6-10']; ?>],
+                  ["$11-15", <?php echo $row['11-15']; ?>],
+                  ["$16-20", <?php echo $row['16-20']; ?>],
+                  ["$20+", <?php echo $row['20+']; ?>]
+               ]);
+
+               var options = {
+                  width: 800,
+                  legend: { position: 'none' },
+                  chart: {
+                     title: 'Common price ranges',
+                     subtitle: '' },
+                  axes: {
+                  x: {
+                     0: { side: 'bottom', label: 'Ride Price Range'}
+                  }
+                  },
+                     bar: { groupWidth: "90%" }
+                     };
+
+                  var chart = new google.charts.Bar(document.querySelector('.chart-bar'));
+                  chart.draw(data, google.charts.Bar.convertOptions(options));
+               };
+         </script>
+
+         <div class="container">
+            <h2>Frequently visited locations</h2>
+         </div>
+
+         <!-- Frequently visited locations -->
+         <div class="container frequent-locations shadow">
+               <ul class="frequent-locations-ul">
+            <?php
+               // Frequently visited locations
+               $sql = "SELECT `destination_title`, COUNT(`destination_title`) AS `value_occurrence` FROM `ride_data` GROUP BY `destination_title` ORDER BY `value_occurrence` DESC LIMIT 5;";
+               $result = mysqli_query($connection, $sql);
+
+               if (mysqli_num_rows($result) > 0) {
+                  $num = 1;
+                  while ($row = mysqli_fetch_array($result)) {
+            ?>
+
+                  <li class="frequent-locations-li">
+                     <div class="frequent-list-num-area">
+                        <h2 class="frequent-nums"><?php echo ($num++).'.'; ?></h2>
+                     </div>
+                     <div class="frequent-list-main-area">
+                        <h2><?php echo $row['destination_title']; ?></h2>
+                        <p class="frequent-p">You visited this location <?php echo $row['value_occurrence']; ?> times this month</p>
+                     </div>
+                  </li>
+
+            <?php }} ?>
+
+            </ul>
+         </div>
+
       </main>
 
    </body>
