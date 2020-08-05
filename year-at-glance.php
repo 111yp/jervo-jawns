@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <title>IDM 216 Jervo Jawns</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="stylesheet" href="assets\css\prototype-pages.css">
-      <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-   </head>
+   <?php // Head
+      $page_title = 'Year at Glance';
+      include_once 'include/head.php'; 
+   ?>
 
    <body>
-      <nav class="shadow">
-         <a class="back-btn" href="month-at-glance.php"><img src="assets/svg/back.svg" class="back-btn-svg"></a>
-         <div class="nav-header">
-            <img src="assets/svg/prototype/menu_rideData.svg" alt="Header Icon">
-            <h1>Ride Data</h1>
-         </div>
-      </nav>
+
+      <?php // Nav
+         $nav_title = 'Ride Data';
+         $nav_icon = 'menu_rideData.svg';
+         include_once 'include/nav.php';
+      ?>
+
       <main>
          <div class="container">
             <h2>2020 at a glance</h2>
@@ -80,7 +77,6 @@
          </div>
          
       </main>
+
    </body>
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-   <script src="assets/js/main.js"></script>
 </html>
