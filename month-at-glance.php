@@ -10,7 +10,7 @@
 
    <body>
       <nav class="shadow">
-         <a class="back-btn" href="month-ride-history.html"><img src="assets/svg/back.svg" class="back-btn-svg"></a>
+         <a class="back-btn" href="month-ride-history.php"><img src="assets/svg/back.svg" class="back-btn-svg"></a>
          <div class="nav-header">
             <img src="assets/svg/prototype/menu_rideData.svg" alt="Header Icon">
             <h1>Ride Data</h1>
@@ -27,7 +27,7 @@
          </div>
 
          <div class="container">
-            <a class="button shadow" href="year-at-glance.html">View 2020 Data</a>
+            <a class="button shadow" href="year-at-glance.php">View 2020 Data</a>
          </div>
 
          <div class="container">

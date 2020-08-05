@@ -27,7 +27,7 @@
          </div>
 
          <div class="container">
-            <a class="button shadow" href="month-at-glance.html">View Ride Data</a>
+            <a class="button shadow" href="month-at-glance.php">View Ride Data</a>
          </div>
 
          <div class="container">
