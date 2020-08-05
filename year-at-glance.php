@@ -2,7 +2,9 @@
 <html lang="en">
    <?php // Head
       $page_title = 'Year at Glance';
-      include_once 'include/head.php'; 
+      include_once 'include/head.php';
+
+      include_once 'include/data-handler.php'; // Only for data pages
    ?>
 
    <body>
@@ -17,6 +19,9 @@
          <div class="container">
             <h2>2020 at a glance</h2>
          </div>
+
+         <!-- THE DATA -->
+
          <div class="container ride-data">
             <div class="ride-data-card shadow">
                <div class="card-img-area">

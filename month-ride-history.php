@@ -2,7 +2,9 @@
 <html lang="en">
    <?php // Head
       $page_title = 'Month Ride History';
-      include_once 'include/head.php'; 
+      include_once 'include/head.php';
+
+      include_once 'include/data-handler.php'; // Only for data pages
    ?>
 
    <body>
@@ -31,234 +33,51 @@
             <a class="export shadow" href="">Export</a>
          </div>
 
+         <!-- THE DATA -->
+
+         <?php
+            $sql =
+               "SELECT * FROM ride_data
+               WHERE MONTH(date) = $month AND YEAR(date) = $year
+               ORDER BY date DESC LIMIT 3;";
+            $result = mysqli_query($connection, $sql);
+            if (mysqli_num_rows($result) > 0) {
+               while ($row = mysqli_fetch_assoc($result)) {
+                  $orig_date = $row['date'];
+                  $new_date = date("m/d/y", strtotime($orig_date));
+         ?>
+
          <div class="container ride-history">
             <div class="ride-history-card shadow">
                <div class="card-img-area">
-                  <img class="card-icon" src="assets/img/driver_profile_pictures/driver_01.png" alt="Diver">
-                  <p class="driver-name">Ravi</p>
+                  <img class="card-icon" src="assets/img/driver_profile_pictures/<?php echo $row['driver_img']; ?>" alt="<?php echo $row['driver']; ?>">
+                  <p class="driver-name"><?php echo $row['driver']; ?></p>
                </div>
                <div class="card-mid-area">
                   <div class="card-mid-top">
-                     <p class="card-title">May 13th | 5:01 PM</p>
-                     <p class="card-subtitle">2.21 mi | 9m</p>
+                     <p class="card-title"><?php echo $new_date.' | '.$row['time']; ?></p>
+                     <p class="card-subtitle"><?php echo $row['distance'].'mi | '.$row['duration'].'mins'; ?></p>
                   </div>
                   <div class="card-mid-btm">
                      <div class="location-icons">
                         <img class="location-a-b" src="assets/svg/prototype/ride-a-b.svg" alt="Ride AB">
                      </div>
                      <div class="locations">
-                        <p class="card-pickup">4228 Homestead Rd</p>
-                        <p class="card-destination">6380 Fincher Rd</p>
+                        <p class="card-pickup"><?php echo $row['pickup']; ?></p>
+                        <p class="card-destination"><?php echo $row['destination_address']; ?></p>
                      </div>
                   </div>
                </div>
                <div class="card-end-area">
-                  <p class="card-price">$3.89</p>
-                  <img class="card-view-btn" src="assets/svg/back.svg" alt="View Btn">
-               </div>
-            </div>
-            <div class="ride-history-card shadow">
-               <div class="card-img-area">
-                  <img class="card-icon" src="assets/img/driver_profile_pictures/driver_01.png" alt="Diver">
-                  <p class="driver-name">Ravi</p>
-               </div>
-               <div class="card-mid-area">
-                  <div class="card-mid-top">
-                     <p class="card-title">May 13th | 5:01 PM</p>
-                     <p class="card-subtitle">2.21 mi | 9m</p>
-                  </div>
-                  <div class="card-mid-btm">
-                     <div class="location-icons">
-                        <img class="location-a-b" src="assets/svg/prototype/ride-a-b.svg" alt="Ride AB">
-                     </div>
-                     <div class="locations">
-                        <p class="card-pickup">4228 Homestead Rd</p>
-                        <p class="card-destination">6380 Fincher Rd</p>
-                     </div>
-                  </div>
-               </div>
-               <div class="card-end-area">
-                  <p class="card-price">$3.89</p>
-                  <img class="card-view-btn" src="assets/svg/back.svg" alt="View Btn">
-               </div>
-            </div>
-            <div class="ride-history-card shadow">
-               <div class="card-img-area">
-                  <img class="card-icon" src="assets/img/driver_profile_pictures/driver_01.png" alt="Diver">
-                  <p class="driver-name">Ravi</p>
-               </div>
-               <div class="card-mid-area">
-                  <div class="card-mid-top">
-                     <p class="card-title">May 13th | 5:01 PM</p>
-                     <p class="card-subtitle">2.21 mi | 9m</p>
-                  </div>
-                  <div class="card-mid-btm">
-                     <div class="location-icons">
-                        <img class="location-a-b" src="assets/svg/prototype/ride-a-b.svg" alt="Ride AB">
-                     </div>
-                     <div class="locations">
-                        <p class="card-pickup">4228 Homestead Rd</p>
-                        <p class="card-destination">6380 Fincher Rd</p>
-                     </div>
-                  </div>
-               </div>
-               <div class="card-end-area">
-                  <p class="card-price">$3.89</p>
-                  <img class="card-view-btn" src="assets/svg/back.svg" alt="View Btn">
-               </div>
-            </div>
-            <div class="ride-history-card shadow">
-               <div class="card-img-area">
-                  <img class="card-icon" src="assets/img/driver_profile_pictures/driver_01.png" alt="Diver">
-                  <p class="driver-name">Ravi</p>
-               </div>
-               <div class="card-mid-area">
-                  <div class="card-mid-top">
-                     <p class="card-title">May 13th | 5:01 PM</p>
-                     <p class="card-subtitle">2.21 mi | 9m</p>
-                  </div>
-                  <div class="card-mid-btm">
-                     <div class="location-icons">
-                        <img class="location-a-b" src="assets/svg/prototype/ride-a-b.svg" alt="Ride AB">
-                     </div>
-                     <div class="locations">
-                        <p class="card-pickup">4228 Homestead Rd</p>
-                        <p class="card-destination">6380 Fincher Rd</p>
-                     </div>
-                  </div>
-               </div>
-               <div class="card-end-area">
-                  <p class="card-price">$3.89</p>
-                  <img class="card-view-btn" src="assets/svg/back.svg" alt="View Btn">
-               </div>
-            </div>
-            <div class="ride-history-card shadow">
-               <div class="card-img-area">
-                  <img class="card-icon" src="assets/img/driver_profile_pictures/driver_01.png" alt="Diver">
-                  <p class="driver-name">Ravi</p>
-               </div>
-               <div class="card-mid-area">
-                  <div class="card-mid-top">
-                     <p class="card-title">May 13th | 5:01 PM</p>
-                     <p class="card-subtitle">2.21 mi | 9m</p>
-                  </div>
-                  <div class="card-mid-btm">
-                     <div class="location-icons">
-                        <img class="location-a-b" src="assets/svg/prototype/ride-a-b.svg" alt="Ride AB">
-                     </div>
-                     <div class="locations">
-                        <p class="card-pickup">4228 Homestead Rd</p>
-                        <p class="card-destination">6380 Fincher Rd</p>
-                     </div>
-                  </div>
-               </div>
-               <div class="card-end-area">
-                  <p class="card-price">$3.89</p>
-                  <img class="card-view-btn" src="assets/svg/back.svg" alt="View Btn">
-               </div>
-            </div>
-            <div class="ride-history-card shadow">
-               <div class="card-img-area">
-                  <img class="card-icon" src="assets/img/driver_profile_pictures/driver_01.png" alt="Diver">
-                  <p class="driver-name">Ravi</p>
-               </div>
-               <div class="card-mid-area">
-                  <div class="card-mid-top">
-                     <p class="card-title">May 13th | 5:01 PM</p>
-                     <p class="card-subtitle">2.21 mi | 9m</p>
-                  </div>
-                  <div class="card-mid-btm">
-                     <div class="location-icons">
-                        <img class="location-a-b" src="assets/svg/prototype/ride-a-b.svg" alt="Ride AB">
-                     </div>
-                     <div class="locations">
-                        <p class="card-pickup">4228 Homestead Rd</p>
-                        <p class="card-destination">6380 Fincher Rd</p>
-                     </div>
-                  </div>
-               </div>
-               <div class="card-end-area">
-                  <p class="card-price">$3.89</p>
-                  <img class="card-view-btn" src="assets/svg/back.svg" alt="View Btn">
-               </div>
-            </div>
-            <div class="ride-history-card shadow">
-               <div class="card-img-area">
-                  <img class="card-icon" src="assets/img/driver_profile_pictures/driver_01.png" alt="Diver">
-                  <p class="driver-name">Ravi</p>
-               </div>
-               <div class="card-mid-area">
-                  <div class="card-mid-top">
-                     <p class="card-title">May 13th | 5:01 PM</p>
-                     <p class="card-subtitle">2.21 mi | 9m</p>
-                  </div>
-                  <div class="card-mid-btm">
-                     <div class="location-icons">
-                        <img class="location-a-b" src="assets/svg/prototype/ride-a-b.svg" alt="Ride AB">
-                     </div>
-                     <div class="locations">
-                        <p class="card-pickup">4228 Homestead Rd</p>
-                        <p class="card-destination">6380 Fincher Rd</p>
-                     </div>
-                  </div>
-               </div>
-               <div class="card-end-area">
-                  <p class="card-price">$3.89</p>
-                  <img class="card-view-btn" src="assets/svg/back.svg" alt="View Btn">
-               </div>
-            </div>
-            <div class="ride-history-card shadow">
-               <div class="card-img-area">
-                  <img class="card-icon" src="assets/img/driver_profile_pictures/driver_01.png" alt="Diver">
-                  <p class="driver-name">Ravi</p>
-               </div>
-               <div class="card-mid-area">
-                  <div class="card-mid-top">
-                     <p class="card-title">May 13th | 5:01 PM</p>
-                     <p class="card-subtitle">2.21 mi | 9m</p>
-                  </div>
-                  <div class="card-mid-btm">
-                     <div class="location-icons">
-                        <img class="location-a-b" src="assets/svg/prototype/ride-a-b.svg" alt="Ride AB">
-                     </div>
-                     <div class="locations">
-                        <p class="card-pickup">4228 Homestead Rd</p>
-                        <p class="card-destination">6380 Fincher Rd</p>
-                     </div>
-                  </div>
-               </div>
-               <div class="card-end-area">
-                  <p class="card-price">$3.89</p>
-                  <img class="card-view-btn" src="assets/svg/back.svg" alt="View Btn">
-               </div>
-            </div>
-            <div class="ride-history-card shadow">
-               <div class="card-img-area">
-                  <img class="card-icon" src="assets/img/driver_profile_pictures/driver_01.png" alt="Diver">
-                  <p class="driver-name">Ravi</p>
-               </div>
-               <div class="card-mid-area">
-                  <div class="card-mid-top">
-                     <p class="card-title">May 13th | 5:01 PM</p>
-                     <p class="card-subtitle">2.21 mi | 9m</p>
-                  </div>
-                  <div class="card-mid-btm">
-                     <div class="location-icons">
-                        <img class="location-a-b" src="assets/svg/prototype/ride-a-b.svg" alt="Ride AB">
-                     </div>
-                     <div class="locations">
-                        <p class="card-pickup">4228 Homestead Rd</p>
-                        <p class="card-destination">6380 Fincher Rd</p>
-                     </div>
-                  </div>
-               </div>
-               <div class="card-end-area">
-                  <p class="card-price">$3.89</p>
+                  <p class="card-price">$<?php echo $row['price']; ?></p>
                   <img class="card-view-btn" src="assets/svg/back.svg" alt="View Btn">
                </div>
             </div>
          </div>
+
+         <?php }} else { echo 'No data to display!'; } ?>
+
       </main>
-      
+
    </body>
 </html>

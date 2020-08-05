@@ -2,7 +2,9 @@
 <html lang="en">
    <?php // Head
       $page_title = 'Month at Glance';
-      include_once 'include/head.php'; 
+      include_once 'include/head.php';
+
+      include_once 'include/data-handler.php'; // Only for data pages
    ?>
 
    <body>
@@ -30,6 +32,8 @@
          <div class="container">
             <h2>May 2020 at a glance</h2>
          </div>
+
+         <!-- THE DATA -->
 
          <div class="container ride-data">
             <div class="ride-data-card shadow">

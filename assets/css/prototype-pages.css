@@ -176,7 +176,7 @@ p {
     justify-content: center;
     flex-direction: column;
     width: 60%;
-	padding: 0.2rem .75rem;
+	/* padding: 0.2rem .75rem; */
 }
 
 .card-mid-area * + *, .card-pickup, .driver-name, .ride-history-card .card-title  {
