@@ -17,10 +17,10 @@
       <main>
          <div class="container">
             <div class="dropdown shadow">
-               <h1>May</h1>
+               <h1><?php echo $monthRangeName; ?></h1>
             </div>
             <div class="dropdown shadow">
-               <h1>2020</h1>
+               <h1><?php echo $year; ?></h1>
             </div>
          </div>
 
@@ -29,7 +29,7 @@
          </div>
 
          <div class="container">
-            <h2>May 2020 Ride History</h2>
+            <h2><?php echo $monthRangeName.' '.$year; ?> Ride History</h2>
             <a class="export shadow" href="">Export</a>
          </div>
 

@@ -17,14 +17,14 @@
 
       <main>
          <div class="container">
-            <h2>2020 at a glance</h2>
+            <h2><?php echo $year; ?> at a glance</h2>
          </div>
 
          <!-- THE DATA -->
 
          <div class="container ride-data">
 
-            <!-- Total spent in 2020 -->
+            <!-- Total spent in YEAR -->
             <?php
                $sql =
                "SELECT  SUM(price) AS value_sum
@@ -40,12 +40,12 @@
                   <img class="card-icon" src="assets/svg/money.svg" alt="money">
                </div>
                <div class="card-content-area">
-                  <p class="card-title">Total spent in 2020</p>
+                  <p class="card-title">Total spent in <?php echo $year; ?></p>
                   <p class="card-data"><?php echo '$'.$row['value_sum']; ?></p>
                </div>
             </div>
 
-            <!-- Total rides taken in 2020 -->
+            <!-- Total rides taken in YEAR -->
             <?php
                $sql =
                "SELECT  COUNT(ride_id) AS value_sum
@@ -61,7 +61,7 @@
                   <img class="card-icon" src="assets/svg/car.svg" alt="car">
                </div>
                <div class="card-content-area">
-                  <p class="card-title">Total rides taken in 2020</p>
+                  <p class="card-title">Total rides taken in <?php echo $year; ?></p>
                   <p class="card-data"><?php echo $row['value_sum'].' rides'; ?></p>
                </div>
             </div>
@@ -93,7 +93,7 @@
             <!-- Average monthly spending -->
             <?php
                $sql =
-               "SELECT Avg(price) AS `average`, year(date) AS `year` FROM ride_data WHERE year(date) = 2020 GROUP BY year(date);";
+               "SELECT Avg(price) AS `average`, year(date) AS `year` FROM ride_data WHERE year(date) = $year GROUP BY year(date);";
 
                $result = mysqli_query($connection, $sql);
                $row = mysqli_fetch_assoc($result);
@@ -117,7 +117,7 @@
                "SELECT  count(*) AS count,
                         MONTH(date) as mnth
                FROM     ride_data
-               WHERE    YEAR(date) = 2020
+               WHERE    YEAR(date) = $year
                GROUP BY mnth;";
 
                $result = mysqli_query($connection, $sql);
@@ -150,7 +150,7 @@
 
          <?php
             $sql =
-               "SELECT COUNT(ride_id) AS month_sum, month(date) AS mnth FROM ride_data WHERE YEAR(date) = 2020 GROUP BY month(date);";
+               "SELECT COUNT(ride_id) AS month_sum, month(date) AS mnth FROM ride_data WHERE YEAR(date) = $year GROUP BY month(date);";
             $result = mysqli_query($connection, $sql);
          ?>
 
@@ -168,7 +168,7 @@
                         while ($row = mysqli_fetch_assoc($result)) {
 
                            $dateObj   = DateTime::createFromFormat('!m', $row['mnth']); // Turns month # into object, '!m' declares it as a month type
-                           $monthName = $dateObj->format('M'); // Converts object into name, 'M' is the format for a 3 letter month name
+                           $monthName = $dateObj->format('M'); // Converts object into name, 'M' is the format for a 3 letter month name, 'F' is full name
 
                            echo "['{$monthName}', {$row['month_sum']}],";
                         }}

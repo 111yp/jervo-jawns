@@ -18,19 +18,19 @@
       <main>
          <div class="container">
             <div class="dropdown shadow">
-               <h1>May</h1>
+               <h1><?php echo $monthRangeName; ?></h1>
             </div>
             <div class="dropdown shadow">
-               <h1>2020</h1>
+               <h1><?php echo $year; ?></h1>
             </div>
          </div>
 
          <div class="container">
-            <a class="button shadow" href="year-at-glance.php">View 2020 Data</a>
+            <a class="button shadow" href="year-at-glance.php">View <?php echo $year; ?> Data</a>
          </div>
 
          <div class="container">
-            <h2>May 2020 at a glance</h2>
+            <h2><?php echo $monthRangeName.' '.$year; ?>  at a glance</h2>
          </div>
 
          <!-- THE DATA -->
