@@ -12,6 +12,7 @@
       <?php // Nav
          $nav_title = 'Ride Data';
          $nav_icon = 'menu_rideData.svg';
+         $nav_back_href = 'month-at-glance.php';
          include_once 'include/nav.php';
       ?>
 
