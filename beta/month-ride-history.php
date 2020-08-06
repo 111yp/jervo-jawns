@@ -72,7 +72,7 @@
             if (mysqli_num_rows($result) > 0) {
                while ($row = mysqli_fetch_assoc($result)) {
                   $orig_date = $row['date'];
-                  $new_date = date("m/d/y", strtotime($orig_date));
+                  $new_date = date("M jS Y", strtotime($orig_date));
          ?>
 
          <div class="container ride-history">
