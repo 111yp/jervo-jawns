@@ -1,0 +1,14 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#coming-soon {
+    color: black;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1.75rem;
+    margin: 50vh auto;
+    transform: translateY(-50%);
+}
