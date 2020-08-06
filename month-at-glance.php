@@ -111,6 +111,7 @@
                $result = mysqli_query($connection, $sql);
                $row = mysqli_fetch_assoc($result);
             ?>
+            
             <div class="ride-data-card shadow">
                <div class="card-img-area">
                   <img class="card-icon" src="assets/svg/two-cars.svg" alt="two-cars">
@@ -140,11 +141,11 @@
 
          </div> <!-- END OF CONTAINER -->
 
+         <!-- Most common ride type -->
          <div class="container">
             <h2>Most common ride type</h2>
          </div>
 
-         <!-- Most common ride type -->
          <div class="container chart-pie shadow">
             <?php
                $sql = "SELECT `type`, COUNT(*) AS `value_occurrence` FROM `ride_data` WHERE MONTH(date) = $month AND YEAR(date) = $year GROUP BY `type`;";
@@ -179,11 +180,11 @@
             </script>
          </div>
 
+         <!-- Common price ranges -->
          <div class="container">
             <h2>Common price ranges</h2>
          </div>
 
-         <!-- Common price ranges -->
          <?php
             $sql =
                "SELECT 
@@ -241,8 +242,7 @@
          <div class="container frequent-locations shadow">
                <ul class="frequent-locations-ul">
             <?php
-               // Frequently visited locations
-               $sql = "SELECT `destination_title`, COUNT(`destination_title`) AS `value_occurrence` FROM `ride_data` GROUP BY `destination_title` ORDER BY `value_occurrence` DESC LIMIT 5;";
+               $sql = "SELECT `destination_title`, COUNT(`destination_title`) AS `value_occurrence` FROM `ride_data` WHERE MONTH(date) = $month AND YEAR(date) = $year GROUP BY `destination_title` ORDER BY `value_occurrence` DESC LIMIT 5;";
                $result = mysqli_query($connection, $sql);
 
                if (mysqli_num_rows($result) > 0) {
