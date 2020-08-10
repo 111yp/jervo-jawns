@@ -18,9 +18,11 @@
 
       <main>
          <div class="container dropdown-wrap">
-            <div class="dropdown shadow">
+            <div class="dropdown shadow" id="drop">
                <h1><?php echo $year; ?></h1>
             </div>
+
+            <div class="dropdown-elements" id="elements">
             <?php
                $sql =
                   "SELECT
@@ -42,6 +44,7 @@
                </form>
 
             <?php }} ?>
+         </div>
          </div>
 
          <div class="container">

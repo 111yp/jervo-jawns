@@ -15,3 +15,9 @@ function responsivenessCheck() {
     var x = nav.clientHeight;
     main.style.paddingTop = x+'px';
 }
+
+$(document).ready(function(){
+    $("#drop").click(function(){
+      $("#elements").slideToggle("slow");
+    });
+});

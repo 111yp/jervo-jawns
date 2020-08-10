@@ -18,9 +18,12 @@
       <main>
       <!-- The button you see first -->
          <div class="container dropdown-wrap">
-            <div class="dropdown shadow">
+            <div class="dropdown shadow" id="drop">
                <h1><?php echo $monthRangeName.' / '.$year; ?></h1>
             </div>
+
+
+            <div class="dropdown-elements" id="elements">
             <?php
                $sql =
                   "SELECT
@@ -46,8 +49,9 @@
                   <input name="month" value="<?php echo $row['month']; ?>" hidden> <!-- Input is hidden, no need to style -->
                   <button type="submit" name="year" value="<?php echo $row['year']; ?>"><?php echo $monthName.' / '.$row['year']; ?></button>
                </form>
-
          <?php }} ?>
+         
+         </div>
          </div>
 
 
