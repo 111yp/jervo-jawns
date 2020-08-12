@@ -18,6 +18,11 @@ function responsivenessCheck() {
 
 $(document).ready(function(){
     $("#drop").click(function(){
-      $("#elements").slideToggle("slow");
+        $("#elements").slideToggle("slow");
+        $("#down-arrow").toggleClass("active");
+    });
+
+    $("#cancel").click(function() {
+        $("#warning").toggleClass("show");
     });
 });

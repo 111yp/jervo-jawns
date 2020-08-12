@@ -1,3 +1,9 @@
+@media screen and (max-width: 600px) {
+	.landscape-warning {
+		display: none !important;
+	}
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -71,10 +77,18 @@ nav {
     background-color: white;
     border-radius: 50px;
     margin: 0 1rem;
-    justify-content: center;
+    justify-content: space-around;
     display: flex;
     align-items: center;
     cursor: pointer;
+}
+
+.dropdown img {
+	transition: all .5s ease-in-out;
+}
+
+.active {
+	transform: rotate(-180deg);
 }
 
 .container.dropdown-wrap {
@@ -96,6 +110,7 @@ nav {
 }
 
 .export {
+	display: none !important; /* HIDDEN UNTIL WE FIGURE OUT ITS USE! */
 	margin-left: 1rem;
 	display: flex;
 	align-items: center;
@@ -340,4 +355,41 @@ p {
 	border: none;
 	background-color: white;
 	cursor: pointer;
+}
+
+.landscape-warning {
+	z-index: 11;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+	background-color: white;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 300px;
+	height: 250px;
+	transform: translate(-50%, -50%);
+	border-radius: 15px;
+}
+
+.cancel {
+	position: fixed;
+	left: 30px;
+	top: 30px;
+}
+
+.warning {
+	height: 100px;
+	width: 100px;
+	transition: all .5s ease-in-out;
+}
+
+.landscape-warning p {
+	font-family: 'Cabin', sans-serif;
+	font-size: 16px;
+}
+
+.show {
+	display: none;
 }

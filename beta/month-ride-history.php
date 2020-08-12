@@ -6,22 +6,27 @@
 
       include_once 'include/data-handler.php'; // Only for data pages
    ?>
-
    <body>
+
+      <div class="landscape-warning shadow" id="warning">
+         <img class="cancel" src="assets/svg/cancel.svg" id="cancel">
+         <img class="warning" src="assets/svg/landscape-warning.svg">
+         <p>Please turn your device</p>
+      </div>
+
       <?php // Nav
          $nav_title = 'Ride History';
          $nav_icon = 'menu_rideHistory.svg';
          $nav_back_href = 'prototype.html';
          include_once 'include/nav.php';
       ?>
-
       <main>
       <!-- The button you see first -->
          <div class="container dropdown-wrap">
             <div class="dropdown shadow" id="drop">
                <h1><?php echo $monthRangeName.' / '.$year; ?></h1>
+               <img src="assets/svg/down-arrow.svg" id="down-arrow">
             </div>
-
 
             <div class="dropdown-elements" id="elements">
             <?php
