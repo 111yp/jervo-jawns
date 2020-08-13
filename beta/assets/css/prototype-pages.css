@@ -79,6 +79,7 @@ nav {
 
 .dropdown img {
 	transition: all .5s ease-in-out;
+	width: 1.25rem;
 }
 
 .active {
