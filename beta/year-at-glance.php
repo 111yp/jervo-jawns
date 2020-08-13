@@ -8,6 +8,7 @@
    ?>
    <body>
 
+      <div class="dark-bg" id="warning-bg"></div>
       <div class="landscape-warning shadow" id="warning">
          <img class="cancel" src="assets/svg/cancel.svg" id="cancel">
          <img class="warning" src="assets/svg/landscape-warning.svg">

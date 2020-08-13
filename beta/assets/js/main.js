@@ -24,5 +24,6 @@ $(document).ready(function(){
 
     $("#cancel").click(function() {
         $("#warning").toggleClass("show");
+        $("#warning-bg").toggleClass("show");
     });
 });

@@ -1,11 +1,11 @@
 @media screen and (max-width: 600px) {
-	.landscape-warning {
+	.landscape-warning, .dark-bg {
 		display: none !important;
 	}
 }
 
 .landscape-warning {
-	z-index: 11;
+	z-index: 12;
 	display: flex;
     flex-direction: column;
     align-items: center;
@@ -40,4 +40,14 @@
 
 .show {
 	display: none;
+}
+
+.dark-bg {
+	z-index: 11;
+	position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,0.3);
 }
