@@ -45,7 +45,7 @@
                   // Each form is 1 dropdown option
                   while ($row = mysqli_fetch_assoc($result)) {
             ?>
-               <form target="<?php echo basename($_SERVER['PHP_SELF']); ?>" method="GET">
+               <form target="_self" method="GET">
                <input name="month" value="0" hidden> <!-- Input is hidden, no need to style, do not edit value -->
                   <button type="submit" name="year" value="<?php echo $row['year']; ?>"><?php echo $row['year']; ?></button>
                </form>
