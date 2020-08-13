@@ -12,8 +12,10 @@ function initCheck() {
 }
 
 function responsivenessCheck() {
-    var x = nav.clientHeight;
-    main.style.paddingTop = x+'px';
+    if (nav) {
+        var x = nav.clientHeight;
+        main.style.paddingTop = x+'px';
+    }
 }
 
 $(document).ready(function(){
