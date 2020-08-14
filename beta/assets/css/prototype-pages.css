@@ -74,7 +74,8 @@ nav {
     justify-content: space-around;
     display: flex;
     align-items: center;
-    cursor: pointer;
+	cursor: pointer;
+	z-index: 5;
 }
 
 .dropdown img {
@@ -105,7 +106,7 @@ nav {
 }
 
 .export {
-	display: none !important; /* HIDDEN UNTIL WE FIGURE OUT ITS USE! */
+	
 	margin-left: 1rem;
 	display: flex;
 	align-items: center;
@@ -118,7 +119,7 @@ nav {
 	font-family: Cabin;
 	font-style: normal;
 	font-weight: bold;
-	font-size: 10px;
+	font-size: 12px;
 	line-height: 12px;
 	color: black;
 }
@@ -342,11 +343,10 @@ p {
 
 .dropdown-elements button {
 	font-family: 'Cabin', sans-serif;
-	font-weight: bold;
-	font-size: 12px;
+	font-size: 16px;
 	width: 100%;
 	text-align: left;
-	padding: .5rem 1rem;
+	padding: .5rem 26px;
 	border: none;
 	background-color: white;
 	cursor: pointer;

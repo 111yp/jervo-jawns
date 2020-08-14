@@ -64,14 +64,32 @@ nav {
 
 .dropdown {
 	height: 45px;
-	width: 112px;
-	border: 3px solid #C8CCF8;
-	background-color: white;
-	border-radius: 50px;
-	margin: 0 1rem;
-	justify-content: center;
+    position: absolute;
+    top: 125px;
+    width: 200px;
+    border: 3px solid #C8CCF8;
+    background-color: white;
+    border-radius: 50px;
+    margin: 0 1rem;
+    justify-content: space-around;
     display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.dropdown img {
+	transition: all .5s ease-in-out;
+	width: 1.25rem;
+}
+
+.active {
+	transform: rotate(-180deg);
+}
+
+.container.dropdown-wrap {
+	flex-direction: column;
 	align-items: center;
+	margin: 4rem;
 }
 
 .button {
@@ -87,6 +105,7 @@ nav {
 }
 
 .export {
+	display: none !important; /* HIDDEN UNTIL WE FIGURE OUT ITS USE! */
 	margin-left: 1rem;
 	display: flex;
 	align-items: center;
@@ -176,7 +195,7 @@ p {
     justify-content: center;
     flex-direction: column;
     width: 60%;
-	padding: 0.2rem .75rem;
+	/* padding: 0.2rem .75rem; */
 }
 
 .card-mid-area * + *, .card-pickup, .driver-name, .ride-history-card .card-title  {
@@ -274,4 +293,61 @@ p {
 .card-data {
 	text-align: left;
     font-size: 2rem;
+}
+
+/* Frequently Visited Locations Chart */
+
+.container.frequent-locations {
+    display: flex;
+	flex-direction: column;
+	margin: auto;
+	padding: 1rem;
+	border-radius: 1rem;
+}
+
+.frequent-locations-li {
+    display: flex;
+    flex-direction: row;
+	padding-bottom: 1rem;
+}
+
+.frequent-list-num-area {
+	width: 10%;
+	color: #276DF6;
+}
+
+.frequent-list-main-area {
+    border-bottom: #FF80DF 2px solid;
+    padding-bottom: 1rem;
+}
+
+.frequent-p {
+    font-weight: normal;
+}
+
+.dropdown-elements {
+	width: 200px;
+	border: 3px solid #C8CCF8;
+	background-color: white;
+	border-top: none;
+	padding-top: 2rem;
+	padding-bottom: 1rem;
+	max-height: 200px;
+	min-height: 0px;
+	overflow: scroll;
+	border-bottom-left-radius: 12px;
+	border-bottom-right-radius: 12px;
+	display: none;
+}
+
+.dropdown-elements button {
+	font-family: 'Cabin', sans-serif;
+	font-weight: bold;
+	font-size: 12px;
+	width: 100%;
+	text-align: left;
+	padding: .5rem 1rem;
+	border: none;
+	background-color: white;
+	cursor: pointer;
 }

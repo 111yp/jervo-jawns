@@ -8,7 +8,5 @@
     }
 
     $monthObj   = DateTime::createFromFormat('!m', $month); // Turns month # into object, '!m' declares it as a month type
-    $monthRangeName = $monthObj->format('F'); // Converts object into name, 'M' is the format for a 3 letter month name, 'F' is full name
-
-    include_once 'include/db.php';
+    $monthRangeName = $monthObj->format('M'); // Converts object into name, 'M' is the format for a 3 letter month name, 'F' is full name
 ?>

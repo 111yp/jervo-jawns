@@ -2,6 +2,7 @@
 <html lang="en">
    <?php // Head
       $page_title = 'Year at Glance';
+      $page_specific_style = 'assets/css/prototype-pages.css';
       include_once 'include/head.php';
 
       include_once 'include/data-handler.php'; // Only for data pages
@@ -206,7 +207,7 @@
                         while ($row = mysqli_fetch_assoc($result)) {
 
                            $dateObj   = DateTime::createFromFormat('!m', $row['mnth']); // Turns month # into object, '!m' declares it as a month type
-                           $monthName = $dateObj->format('M'); // Converts object into name, 'M' is the format for a 3 letter month name
+                           $monthName = $dateObj->format('M'); // Converts object into name, 'M' is 3 letter month name, 'F' is full month name
 
                            echo "['{$monthName}', {$row['month_sum']}],";
                         }}

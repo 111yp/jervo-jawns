@@ -33,8 +33,6 @@
         <section>
             <h1>Month Ride History - Limited to 3 on purpose</h1>
             <?php
-            
-                include_once 'include/db.php';
 
                 $sql = "SELECT * FROM ride_data
                 WHERE MONTH(date) = $month AND YEAR(date) = $year

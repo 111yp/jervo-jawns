@@ -1,17 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <title>IDM 216 Jervo Jawns</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="stylesheet" href="assets\css\prototype.css">
-      <link rel="stylesheet" href="assets\css\prototype-shared.css">
-      <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-      <script src="assets/js/prototype.js"></script>
-      <script src="assets/js/main.js"></script>
-   </head>
-
+   <?php // Head
+      $page_title = 'Prototype';
+      $page_specific_style = 'assets/css/prototype.css';
+      include_once 'include/head.php';
+   ?>
    <body>
 
       <div class="dark-bg" id="warning-bg"></div>
@@ -59,14 +52,22 @@
                <p>Search destination</p>
             </div>
             <h3>Recent destinations</h3>
-            <div class="destination">
-               <img src="assets/svg/prototype/home_destination.svg">
-               <p>Charleston International Airport<br>5500 International Blvd, North Charleston</p>
-            </div>
-            <div class="destination">
-               <img src="assets/svg/prototype/home_destination.svg">
-               <p>Charleston International Airport<br>5500 International Blvd, North Charleston</p>
-            </div>
+
+            <!-- Recent Destinations -->
+            <?php
+               $sql = "SELECT date, destination_title, destination_address FROM ride_data ORDER BY date DESC LIMIT 2;";
+               $result = mysqli_query($connection, $sql);
+               if (mysqli_num_rows($result) > 0) {
+                  while ($row = mysqli_fetch_assoc($result)) {
+            ?>
+
+                     <div class="destination">
+                        <img src="assets/svg/prototype/home_destination.svg">
+                        <p><?php echo $row['destination_title'] .'<br>'. $row['destination_address']; ?></p>
+                     </div>
+
+            <?php }} else { echo 'No data to display!'; } ?>
+
          </div>
       </div>
 
