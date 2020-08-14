@@ -1,3 +1,7 @@
+.shadow {
+	box-shadow: 1px 10px 20px 7px rgba(0, 0, 0, 0.15);
+}
+
 .sidenav {
     display: flex;
     flex-direction: column;
@@ -26,7 +30,6 @@
 	width: 150px;
 	background-color: white;
 	border-radius: 8px;
-	box-shadow: 1px 2px 5px 2px rgba(0, 0, 0, 0.15);
 	display: flex;
 	align-items: center;
 	text-decoration: none;
@@ -49,7 +52,6 @@
 
 .profile-icon {
 	border-radius: 50%;
-	box-shadow: 1px 10px 20px 7px rgba(0, 0, 0, 0.15);
 }
 
 .sidenav a:hover {
@@ -66,11 +68,12 @@
 
 .menu-btn {
 	width: 40px;
-	height: 40px;
-	border: none;
-	background-color: white;
-	box-shadow: 1px 10px 20px 7px rgba(0, 0, 0, 0.15);
-	border-radius: 8px;
+    height: 40px;
+    border: none;
+    background-color: white;
+    border-radius: 8px;
+	position: fixed;
+	margin: 8px;
 }
 
 .menu-btn:hover {
@@ -96,7 +99,6 @@
 	border-radius: 10px 10px 0 0;
 	background-color: white;
 	text-align: center;
-	box-shadow: 1px 10px 20px 7px rgba(0, 0, 0, 0.15);
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
@@ -118,7 +120,6 @@
 	width: 100%;
 	background-color: white;
 	border-radius: 8px;
-	box-shadow: 1px 10px 20px 7px rgba(0, 0, 0, 0.15);
 	display: flex;
 	align-items: center;
 }
@@ -164,4 +165,8 @@ p {
 	font-family: 'Cabin', sans-serif;
 	font-weight: 400;
 	font-size: 14px;
+}
+
+#map {
+	height: 100%;
 }
