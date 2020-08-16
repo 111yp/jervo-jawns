@@ -93,8 +93,8 @@
                </div>
                <div class="card-mid-area">
                   <div class="card-mid-top">
-                     <p class="card-title"><?php echo $new_date.' | '.$row['time']; ?></p>
-                     <p class="card-subtitle"><?php echo $row['distance'].'mi | '.$row['duration'].'mins'; ?></p>
+                     <p class="card-title"><?php echo $new_date.' • '.$row['time']; ?></p>
+                     <p class="card-subtitle"><?php echo $row['distance'].'mi • '.$row['duration'].'mins'; ?></p>
                   </div>
                   <div class="card-mid-btm">
                      <div class="location-icons">
