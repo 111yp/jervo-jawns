@@ -1,4 +1,4 @@
-@media screen and (max-width: 600px) {
+@media (orientation: portrait) {
 	.landscape-warning, .dark-bg {
 		display: none !important;
 	}

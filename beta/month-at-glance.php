@@ -9,9 +9,8 @@
    ?>
    <body>
 
-      <div class="dark-bg" id="warning-bg"></div>
-      <div class="landscape-warning shadow" id="warning">
-         <img class="cancel" src="assets/svg/cancel.svg" id="cancel">
+      <div class="dark-bg"></div>
+      <div class="landscape-warning shadow">
          <img class="warning" src="assets/svg/landscape-warning.svg">
          <p>Please turn your device</p>
       </div>

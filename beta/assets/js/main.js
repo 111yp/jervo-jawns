@@ -23,9 +23,4 @@ $(document).ready(function(){
         $("#elements").slideToggle("slow");
         $("#down-arrow").toggleClass("active");
     });
-
-    $("#cancel").click(function() {
-        $("#warning").toggleClass("show");
-        $("#warning-bg").toggleClass("show");
-    });
 });
