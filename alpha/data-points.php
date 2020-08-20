@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Points</title>
-    <link rel="stylesheet" href="assets/css/normalize.css">
-</head>
+<?php // Head
+    $page_title = 'Data Points';
+    include_once 'include/head.php';
+?>
 <body>
     <?php
         if ((!isset($_GET['month'])) && (!isset($_GET['year']))) {
             // If date is not specified, set default values
             echo 'date not set';
-            $month = 6;
+            $month = 5;
             $year = 2020;
         } else {
             // If date is set, parse it and set variables $month and $year to the date's value
@@ -33,8 +29,6 @@
         <section>
             <h1>Month Ride History - Limited to 3 on purpose</h1>
             <?php
-            
-                include_once 'include/db.php';
 
                 $sql = "SELECT * FROM ride_data
                 WHERE MONTH(date) = $month AND YEAR(date) = $year
@@ -237,7 +231,8 @@
                     <!-- Google Column Chart JS https://developers.google.com/chart/interactive/docs/gallery/columnchart -->
 
                     <?php
-                        $sql = "SELECT 
+                        $sql =
+                            "SELECT 
                             SUM(CASE WHEN price BETWEEN 1  AND 5  THEN 1 ELSE 0 END) AS '1-5',
                             SUM(CASE WHEN price BETWEEN 6  AND 10 THEN 1 ELSE 0 END) AS '6-10',
                             SUM(CASE WHEN price BETWEEN 11 AND 15 THEN 1 ELSE 0 END) AS '11-15',
@@ -248,6 +243,7 @@
                         $result = mysqli_query($connection, $sql);
                         $row = mysqli_fetch_assoc($result);
                     ?>
+                    <div class="chart-bar" style="width: 800px; height: 600px;"></div>
 
                     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
                         <script type="text/javascript">
@@ -278,11 +274,11 @@
                                 bar: { groupWidth: "90%" }
                                 };
 
-                            var chart = new google.charts.Bar(document.getElementById('top_x_div'));
+                            var chart = new google.charts.Bar(document.querySelector('.chart-bar'));
                             chart.draw(data, google.charts.Bar.convertOptions(options));
                         };
                             </script>
-                            <div id="top_x_div" style="width: 800px; height: 600px;"></div>
+                            
             </section>
             <section>
 
@@ -326,9 +322,6 @@
                 unset($k, $v);
             ?>
     </main>
-    <?php
-       // }
-    ?>
 </body>
 <style>
     .card {

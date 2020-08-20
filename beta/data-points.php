@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Points</title>
-    <link rel="stylesheet" href="assets/css/normalize.css">
-</head>
+<?php // Head
+    $page_title = 'Data Points';
+    include_once 'include/head.php';
+?>
 <body>
     <?php
         if ((!isset($_GET['month'])) && (!isset($_GET['year']))) {
@@ -326,9 +322,6 @@
                 unset($k, $v);
             ?>
     </main>
-    <?php
-       // }
-    ?>
 </body>
 <style>
     .card {

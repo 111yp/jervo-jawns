@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-   <?php // Head
-      $page_title = 'Year at Glance';
-      $page_specific_style = 'assets/css/prototype-pages.css';
-      include_once 'include/head.php';
+<?php // Head
+   $page_title = 'Year at Glance';
+   $page_specific_style = 'assets/css/prototype-pages.css';
+   include_once 'include/head.php';
 
-      include_once 'include/data-handler.php'; // Only for data pages
-   ?>
+   include_once 'include/data-handler.php'; // Only for data pages
+?>
    <body>
 
       <div class="dark-bg"></div>
@@ -32,13 +30,7 @@
             <div class="dropdown-elements" id="elements">
             <?php
                $sql =
-                  "SELECT
-                           YEAR(date) AS `year`
-                  FROM     ride_data
-                  GROUP BY
-                           YEAR(date)
-                  ORDER BY
-                           YEAR(date);";
+                  "SELECT YEAR(date) AS `year` FROM ride_data GROUP BY YEAR(date) ORDER BY YEAR(date) DESC;";
 
                $result = mysqli_query($connection, $sql);
                if (mysqli_num_rows($result) > 0) {

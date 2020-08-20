@@ -4,6 +4,8 @@
 ▒█▄▄█ ▀▀▀ ▀░▀▀ ░░▀░░ ▀▀▀▀ 　 ▒█▄▄█ ▀░░▀ ░▀░▀░ ▀░░▀ ▀▀▀
 -->
 <?php include_once 'include/db.php'; ?>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <!-- Init -->
     <meta charset="UTF-8">

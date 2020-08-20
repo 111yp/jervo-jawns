@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-   <?php // Head
-      $page_title = 'Prototype';
-      $page_specific_style = 'assets/css/prototype.css';
-      include_once 'include/head.php';
-   ?>
+<?php // Head
+   $page_title = 'Prototype';
+   $page_specific_style = 'assets/css/prototype.css';
+   include_once 'include/head.php';
+?>
    <body>
 
       <div class="dark-bg"></div>
@@ -59,11 +57,16 @@
                $result = mysqli_query($connection, $sql);
                if (mysqli_num_rows($result) > 0) {
                   while ($row = mysqli_fetch_assoc($result)) {
+                     if ($row['destination_title'] == $row['destination_address']) {
+                        $the_recent_rides = $row['destination_title'];
+                     } else {
+                        $the_recent_rides = $row['destination_title'] .'<br>'. $row['destination_address'];
+                     }
             ?>
 
                      <div class="destination">
                         <img src="assets/svg/prototype/home_destination.svg">
-                        <p><?php echo $row['destination_title'] .'<br>'. $row['destination_address']; ?></p>
+                        <p><?php echo $the_recent_rides; ?></p>
                      </div>
 
             <?php }} else { echo 'No data to display!'; } ?>
