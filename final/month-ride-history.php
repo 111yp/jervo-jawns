@@ -16,7 +16,7 @@
       <?php // Nav
          $nav_title = 'Ride History';
          $nav_icon = 'menu_rideHistory.svg';
-         $nav_back_href = 'prototype.php';
+         $nav_back_href = 'index.php';
          include_once 'include/nav.php';
       ?>
       <main>
