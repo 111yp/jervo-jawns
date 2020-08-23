@@ -49,7 +49,9 @@
             <h1>Where are you going?</h1>
             <div class="search shadow">
                <img src="assets/svg/prototype/home_search.svg">
-               <input type="text" placeholder="Search Destination">
+               <p> <!-- DO NOT DELETE THIS P TAG -->
+                  <input type="text" placeholder="Search Destination">
+               </p>
             </div>
             <h3>Recent destinations</h3>
 
