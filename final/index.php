@@ -34,7 +34,9 @@
       </div>
 
       <button class="menu-btn shadow" onclick="openNav()">
-         <img src="assets/svg/hamburger.svg">
+         <span></span>
+         <span></span>
+         <span></span>
       </button>
 
 
@@ -47,7 +49,7 @@
             <h1>Where are you going?</h1>
             <div class="search shadow">
                <img src="assets/svg/prototype/home_search.svg">
-               <p>Search destination</p>
+               <input type="text" placeholder="Search Destination">
             </div>
             <h3>Recent destinations</h3>
 

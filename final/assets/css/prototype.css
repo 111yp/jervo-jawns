@@ -67,13 +67,22 @@
 }
 
 .menu-btn {
-	width: 40px;
-    height: 40px;
     border: none;
     background-color: white;
     border-radius: 8px;
-	position: fixed;
-	margin: 8px;
+    position: fixed;
+    margin: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: .5rem;
+}
+
+.menu-btn span {
+	background-color: black;
+    width: 1.25rem;
+    height: .2rem;
+    margin: 0.15rem;
 }
 
 .menu-btn:hover {
@@ -124,8 +133,17 @@
 	align-items: center;
 }
 
+.search input {
+    border: none;
+    font-family: 'Cabin', sans-serif;
+}
+
+.search img {
+	padding: 1rem;
+	width: 20px;
+}
+
 .destination {
-	height: 56px;
 	box-sizing: border-box;
 	width: 100%;
 	background-color: white;
@@ -133,11 +151,6 @@
 	display: flex;
 	align-items: center;
 	text-align: left;
-}
-
-.search img {
-	padding: 1rem;
-	width: 20px;
 }
 
 h1 {
