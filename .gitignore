@@ -57,6 +57,7 @@ Temporary Items
 ######################
 *.log
 *.sql
+!database.sql
 *.sqlite
 db.php
 
