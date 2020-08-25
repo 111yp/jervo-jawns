@@ -50,7 +50,7 @@
          </div>
 
          <div class="container">
-            <a class="button shadow" href="year-at-glance.php?month=<?php echo $month ?>&year=<?php echo $year ?>">View All Data for <?php echo $year; ?></a>
+            <a class="button shadow" href="year-at-glance.php?month=<?php echo $month ?>&year=<?php echo $year ?>"><?php echo $year; ?> Summary</a>
          </div>
 
          <div class="container">

@@ -51,12 +51,11 @@
 
 
          <div class="container">
-            <a class="button shadow" href="month-at-glance.php?month=<?php echo $month ?>&year=<?php echo $year ?>">View All Data for <?php echo $monthRangeName.' '.$year; ?></a>
+            <a class="button shadow" href="month-at-glance.php?month=<?php echo $month ?>&year=<?php echo $year ?>"><?php echo $monthRangeName.' '.$year; ?> Summary</a>
          </div>
 
          <div class="container">
             <h2><?php echo $monthRangeName.' '.$year; ?> Ride History</h2>
-            <a class="export shadow" href="">Export</a>
          </div>
 
 
@@ -71,7 +70,7 @@
             if (mysqli_num_rows($result) > 0) {
                while ($row = mysqli_fetch_assoc($result)) {
                   $orig_date = $row['date'];
-                  $new_date = date("M jS Y", strtotime($orig_date));
+                  $new_date = date("M jS", strtotime($orig_date));
          ?>
 
          <div class="container ride-history">
@@ -97,7 +96,6 @@
                </div>
                <div class="card-end-area">
                   <p class="card-price"><?php echo '$'.$row['price']; ?></p>
-                  <img class="card-view-btn" src="assets/svg/back.svg" alt="View Btn">
                </div>
             </div>
          </div>

@@ -102,29 +102,6 @@ nav {
 	font-weight: bold;
 }
 
-.export {
-	
-	margin-left: 1rem;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	text-decoration: none;
-	border-radius: 7px;
-	border: 1.5px solid #FF00BF;
-	width: 48px;
-	height: 27px;
-	font-family: Cabin;
-	font-style: normal;
-	font-weight: bold;
-	font-size: 12px;
-	line-height: 12px;
-	color: black;
-}
-
-.export:active, .export:hover {
-	color: #FF00BF
-}
-
 .button:hover {
 	border: 3px solid #FF00BF;
 	background-color: #FFE5FD;
@@ -233,11 +210,6 @@ p {
     flex-direction: column;
 	width: 20%;
 	padding: .5rem;
-}
-
-.card-view-btn {
-	transform: rotate(180deg);
-	width: 1rem;
 }
 
 /* Ride Data Cards */
