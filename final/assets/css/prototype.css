@@ -113,7 +113,7 @@
 	align-items: flex-start;
 	padding: 1.5rem;
     box-sizing: border-box;
-    overflow-y: scroll;
+    overflow-y: hidden;
 }
 
 .help-btn {
