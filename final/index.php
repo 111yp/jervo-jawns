@@ -6,7 +6,7 @@
 ?>
    <body>
 
-      <div class="dark-bg" style="display: none"></div>
+      <div class="dark-bg"></div>
       <div class="landscape-warning shadow">
          <img class="warning" src="assets/svg/landscape-warning.svg">
          <p>Please turn your device</p>
@@ -34,16 +34,16 @@
       </div>
       </div>
 
-      <button class="menu-btn shadow">
+      <button class="menu-btn shadow" onclick="openNav()">
          <span></span>
          <span></span>
          <span></span>
       </button>
 
 
-      <div id="home" class="home">
+      <div id="home" class="home" onclick="closeNav()">
          <div id="mapwrapper">
-            <div id="map"></div>
+             <div id="map"></div>
          </div>
          <div class="landing-footer shadow">
             <img class="help-btn" src="assets/svg/prototype/home_helpButton.svg">
