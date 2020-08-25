@@ -209,7 +209,7 @@
                   width: $(window).width(),
                   legend: { position: 'none' },
                   chart: {
-                     title: 'Rides per month',
+                     title: '',
                      subtitle: '' },
                   axes: {
                   x: {
@@ -302,7 +302,7 @@
                   width: $(window).width(),
                   legend: { position: 'none' },
                   chart: {
-                     title: 'Common price ranges',
+                     title: '',
                      subtitle: '' },
                   axes: {
                   x: {

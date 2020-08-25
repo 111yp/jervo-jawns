@@ -40,10 +40,9 @@
          <span></span>
       </button>
 
-
       <div id="home" class="home" onclick="closeNav()">
          <div id="mapwrapper">
-             <div id="map"></div>
+            <div id="map"></div>
          </div>
          <div class="landing-footer shadow">
             <img class="help-btn" src="assets/svg/prototype/home_helpButton.svg">

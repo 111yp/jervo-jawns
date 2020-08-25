@@ -195,7 +195,7 @@
                ]);
 
                // Optional; add a title and set the width and height of the chart
-               var options = {'title':'Most Common Ride Type', 'width': $(window).width(), 'height':400};
+               var options = {'title':'', 'width': $(window).width(), 'height':400};
 
                // Display the chart inside the <div> element with id="piechart"
                var chart = new google.visualization.PieChart(document.querySelector('.chart-pie'));
@@ -243,7 +243,7 @@
                   width: $(window).width(),
                   legend: { position: 'none' },
                   chart: {
-                     title: 'Common price ranges',
+                     title: '',
                      subtitle: '' },
                   axes: {
                   x: {
