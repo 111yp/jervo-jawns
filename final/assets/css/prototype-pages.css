@@ -347,6 +347,15 @@ p {
 	cursor: pointer;
 }
 
+[data-month="1"] {
+	border-bottom: 3px var(--purple) dotted;
+	padding-bottom: .5rem;
+}
+
+[data-month="12"] {
+	padding-top: .5rem;
+}
+
 /* Month Boxes */
 
 .month-box-wrap {
@@ -390,4 +399,14 @@ p {
 
 .month-box-label {
     font-weight: normal;
+}
+
+/* Charts */
+
+.chart-pie {
+    padding: 1rem 0 0 0;
+}
+
+.chart-bar {
+    padding: 2rem 0;
 }

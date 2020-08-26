@@ -40,7 +40,7 @@
                      $monthObj   = DateTime::createFromFormat('!m', $row['month']); // Turns month # into object, '!m' declares it as a month type
                      $monthName = $monthObj->format('M'); // Converts object into name, 'M' is 3 letter month name, 'F' is full month name
             ?>
-               <form target="_self" method="GET">
+               <form target="_self" method="GET" data-month="<?php echo $row['month']; ?>">
                   <input name="month" value="<?php echo $row['month']; ?>" hidden> <!-- Input is hidden, no need to style -->
                   <button type="submit" name="year" value="<?php echo $row['year']; ?>"><?php echo $monthName.' '.$row['year']; ?></button>
                </form>
@@ -107,7 +107,7 @@
                   <img class="card-icon" src="assets/svg/averageCost_ridingData.svg" alt="building">
                </div>
                <div class="card-content-area">
-                  <p class="card-title">Average cost per Ride</p>
+                  <p class="card-title">Average cost per ride</p>
                   <p class="card-data"><?php echo '$'.number_format((float)$row['value_avg'], 2, '.', ''); ?></p>
                </div>
             </div>
@@ -124,7 +124,7 @@
                   <img class="card-icon" src="assets/svg/route.svg" alt="route">
                </div>
                <div class="card-content-area">
-                  <p class="card-title">Average distance per Ride</p>
+                  <p class="card-title">Average distance per ride</p>
                   <p class="card-data"><?php echo number_format((float)$row['value_avg'], 2, '.', '').' mi'; ?></p>
                </div>
             </div>

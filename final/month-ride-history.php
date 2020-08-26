@@ -40,7 +40,7 @@
                      $monthObj   = DateTime::createFromFormat('!m', $row['month']); // Turns month # into object, '!m' declares it as a month type
                      $monthName = $monthObj->format('M'); // Converts object into name, 'M' is 3 letter month name, 'F' is full month name
             ?>
-               <form target="_self" method="GET">
+               <form target="_self" method="GET" data-month="<?php echo $row['month']; ?>">
                   <input name="month" value="<?php echo $row['month']; ?>" hidden> <!-- Input is hidden, no need to style -->
                   <button type="submit" name="year" value="<?php echo $row['year']; ?>"><?php echo $monthName.' '.$row['year']; ?></button>
                </form>

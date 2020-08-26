@@ -158,7 +158,7 @@
                      $total = $total + $row['count'];
                }}
                $rowcount = mysqli_num_rows($result);
-               $avg_monthly_rides = number_format((float)($total / $rowcount), 2, '.', '');
+               $avg_monthly_rides = round($total / $rowcount);
             ?>
 
             <div class="ride-data-card shadow">
