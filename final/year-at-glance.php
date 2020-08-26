@@ -16,7 +16,7 @@
       <?php // Nav
          $nav_title = 'Ride Data';
          $nav_icon = 'menu_rideData.svg';
-         $nav_back_href = 'month-at-glance.php';
+         $nav_back_href = 'month-at-glance.php?month='.$month.'&'.'year='.$year;
          include_once 'include/nav.php';
       ?>
       <main>
@@ -158,7 +158,7 @@
                      $total = $total + $row['count'];
                }}
                $rowcount = mysqli_num_rows($result);
-               $avg_monthly_rides = $total / $rowcount;
+               $avg_monthly_rides = number_format((float)($total / $rowcount), 2, '.', '');
             ?>
 
             <div class="ride-data-card shadow">
@@ -172,6 +172,61 @@
             </div>
 
          </div> <!-- END OF CONTAINER -->
+
+         <!-- Recent Month Boxes -->
+         
+         <div class="container month-box-wrap">
+            <?php
+               $sql = "SELECT  COUNT(ride_id) AS value_sum, SUM(price) AS price_sum
+               FROM     ride_data
+               WHERE    YEAR(date) = $year AND MONTH(date) = $month;";
+               $result = mysqli_query($connection, $sql);
+               $row = mysqli_fetch_assoc($result);
+
+               if (mysqli_num_rows($result) > 0) {
+            ?>
+                  <div class="month-box shadow">
+                     <p class="month-box-title"><?php echo $prev_monthName_Full; ?></p>
+                     <div class="month-box-content">
+                        <div class="month-box-top">
+                           <p class="month-box-label">Total Rides</p>
+                           <p class="month-box-values"><?php echo $row['value_sum']; ?></p>
+                        </div>
+                        <div class="month-box-btm">
+                           <p class="month-box-label">Total Spent</p>
+                           <p class="month-box-values"><?php echo $row['price_sum']; ?></p>
+                        </div>
+                     </div>
+                  </div>
+
+               <?php
+               }
+
+                  $sql = "SELECT  COUNT(ride_id) AS value_sum, SUM(price) AS price_sum
+                     FROM     ride_data
+                     WHERE    YEAR(date) = $prev_year AND MONTH(date) = $prev_month;";
+                     $result = mysqli_query($connection, $sql);
+                     $row = mysqli_fetch_assoc($result);
+
+                  if (mysqli_num_rows($result) > 0) {
+               ?>
+
+                  <div class="month-box shadow">
+                     <p class="month-box-title"><?php echo $monthName_Full; ?></p>
+                     <div class="month-box-content">
+                        <div class="month-box-top">
+                           <p class="month-box-label">Total Rides</p>
+                           <p class="month-box-values"><?php echo $row['value_sum']; ?></p>
+                        </div>
+                        <div class="month-box-btm">
+                           <p class="month-box-label">Total Spent</p>
+                           <p class="month-box-values"><?php echo $row['price_sum']; ?></p>
+                        </div>
+                     </div>
+                  </div>
+
+            <?php } ?>
+         </div>
          
          <!-- Rides per month -->
          <div class="container">
