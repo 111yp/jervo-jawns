@@ -38,7 +38,7 @@
                   while ($row = mysqli_fetch_assoc($result)) {
             ?>
                <form target="_self" method="GET">
-               <input name="month" value="0" hidden> <!-- Input is hidden, no need to style, do not edit value -->
+               <input name="month" value="1" hidden> <!-- Input is hidden, no need to style, do not edit value -->
                   <button type="submit" name="year" value="<?php echo $row['year']; ?>"><?php echo $row['year']; ?></button>
                </form>
 
