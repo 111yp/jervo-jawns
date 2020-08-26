@@ -52,7 +52,7 @@ nav {
 .container {
 	display: flex;
 	justify-content: center;
-	margin: 2rem 0;
+	margin: 2rem;
 }
 
 .text-container {
@@ -270,7 +270,6 @@ p {
 .container.frequent-locations {
     display: flex;
 	flex-direction: column;
-	margin: auto;
 	padding: 1rem;
 	border-radius: 1rem;
 }

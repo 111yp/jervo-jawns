@@ -133,7 +133,7 @@
 
             <div class="ride-data-card shadow">
                <div class="card-img-area">
-                  <img class="card-icon" src="assets/svg/car-building.svg" alt="building">
+                  <img class="card-icon" src="assets/svg/averageCost_ridingData.svg" alt="building">
                </div>
                <div class="card-content-area">
                   <p class="card-title">Average monthly spending</p>
@@ -206,7 +206,8 @@
                ]);
 
                var options = {
-                  width: $(window).width(),
+                  width: $(window).width()*.7,
+                  height: $(window).width()*.7,
                   legend: { position: 'none' },
                   chart: {
                      title: '',
@@ -254,7 +255,7 @@
                ]);
 
                // Optional; add a title and set the width and height of the chart
-               var options = {'title':'', 'width': $(window).width(), 'height':400};
+               var options = {'title':'Most Common Ride Type', 'width': $(window).width()*.8, 'height': $(window).width()*.7, colors: ['#B6D7F4', '#FF80DF']};
 
                // Display the chart inside the <div> element with id="piechart"
                var chart = new google.visualization.PieChart(document.querySelector('.chart-pie'));
@@ -299,7 +300,8 @@
                ]);
 
                var options = {
-                  width: $(window).width(),
+                  width: $(window).width()*.7,
+                  height: $(window).width()*.7,
                   legend: { position: 'none' },
                   chart: {
                      title: '',
