@@ -184,7 +184,7 @@
             $result = mysqli_query($connection, $sql);
          ?>
 
-         <div class="container chart-bar-rides-per-month shadow" style="height: 300px;"></div>
+         <div class="container chart-bar-rides-per-month shadow rounded-corners" style="height: 300px;"></div>
          <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
             <script type="text/javascript">
             google.charts.load('current', {'packages':['bar']});
@@ -206,6 +206,7 @@
                ]);
 
                var options = {
+                  colors: ["#C8CCF8"],
                   width: $(window).width()*.7,
                   height: $(window).width()*.7,
                   legend: { position: 'none' },
@@ -230,7 +231,7 @@
             <h2>Most common ride type</h2>
          </div>
 
-         <div class="container chart-pie shadow">
+         <div class="container chart-pie shadow rounded-corners">
             <?php
                $sql = "SELECT `type`, COUNT(*) AS `value_occurrence` FROM `ride_data` WHERE YEAR(date) = $year GROUP BY `type`;";
                $result = mysqli_query($connection, $sql);
@@ -255,7 +256,7 @@
                ]);
 
                // Optional; add a title and set the width and height of the chart
-               var options = {'title':'Most Common Ride Type', 'width': $(window).width()*.8, 'height': $(window).width()*.7, colors: ['#B6D7F4', '#FF80DF']};
+               var options = {'title':'Most Common Ride Type', 'width': $(window).width()*.8, 'height': $(window).width()*.7, colors: ['#B6D7F4', '#FF80DF', '#276DF6']};
 
                // Display the chart inside the <div> element with id="piechart"
                var chart = new google.visualization.PieChart(document.querySelector('.chart-pie'));
@@ -283,7 +284,7 @@
             $row = mysqli_fetch_assoc($result);
          ?>
 
-         <div class="container chart-bar-common-price-ranges shadow" style="height: 300px;"></div>
+         <div class="container chart-bar-common-price-ranges shadow rounded-corners" style="height: 300px;"></div>
          <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
             <script type="text/javascript">
             google.charts.load('current', {'packages':['bar']});
@@ -300,6 +301,7 @@
                ]);
 
                var options = {
+                  colors: ["#C8CCF8"],
                   width: $(window).width()*.7,
                   height: $(window).width()*.7,
                   legend: { position: 'none' },
@@ -323,7 +325,7 @@
             <h2>Frequently visited locations</h2>
          </div>
             
-            <div class="container frequent-locations shadow">
+            <div class="container frequent-locations shadow rounded-corners">
                <ul class="frequent-locations-ul">
                   <?php
                      $sql = "SELECT `destination_title`, COUNT(`destination_title`) AS `value_occurrence` FROM `ride_data` WHERE year(date) = $year GROUP BY `destination_title` ORDER BY `value_occurrence` DESC LIMIT 5;";

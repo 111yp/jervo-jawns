@@ -170,7 +170,7 @@
             <h2>Most common ride type</h2>
          </div>
 
-         <div class="container chart-pie shadow">
+         <div class="container chart-pie shadow rounded-corners">
             <?php
                $sql = "SELECT `type`, COUNT(*) AS `value_occurrence` FROM `ride_data` WHERE MONTH(date) = $month AND YEAR(date) = $year GROUP BY `type`;";
                $result = mysqli_query($connection, $sql);
@@ -223,7 +223,7 @@
             $row = mysqli_fetch_assoc($result);
          ?>
 
-         <div class="container chart-bar shadow"></div>
+         <div class="container chart-bar shadow rounded-corners"></div>
          <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
             <script type="text/javascript">
             google.charts.load('current', {'packages':['bar']});
@@ -265,7 +265,7 @@
          </div>
 
          <!-- Frequently visited locations -->
-         <div class="container frequent-locations shadow">
+         <div class="container frequent-locations shadow rounded-corners">
                <ul class="frequent-locations-ul">
             <?php
                $sql = "SELECT `destination_title`, COUNT(`destination_title`) AS `value_occurrence` FROM `ride_data` WHERE MONTH(date) = $month AND YEAR(date) = $year GROUP BY `destination_title` ORDER BY `value_occurrence` DESC LIMIT 5;";
