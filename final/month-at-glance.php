@@ -195,7 +195,7 @@
                ]);
 
                // Optional; add a title and set the width and height of the chart
-               var options = {'title':'Most Common Ride Type', 'width': $(window).width()*.8, 'height': $(window).width()*.7, colors: ['#B6D7F4', '#FF80DF']};
+               var options = {'title':'Most Common Ride Type', 'width': $(window).width()*.8, 'height': $(window).width()*.7, colors: ['#B6D7F4', '#FF80DF', '#276DF6']};
 
                // Display the chart inside the <div> element with id="piechart"
                var chart = new google.visualization.PieChart(document.querySelector('.chart-pie'));
@@ -240,6 +240,7 @@
                ]);
 
                var options = {
+                  colors: ["#C8CCF8"],
                   width: $(window).width()*.7,
                   height: $(window).width()*.7,
                   legend: { position: 'none' },

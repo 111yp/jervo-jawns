@@ -282,7 +282,15 @@ p {
 
 .frequent-list-num-area {
 	width: 10%;
+	margin-right: .75rem;
+	align-items: center;
+    justify-content: center;
+    display: flex;
 	color: #276DF6;
+}
+
+.frequent-list-num-area h2 {
+	font-size: 16px;
 }
 
 .frequent-list-main-area {
@@ -290,8 +298,14 @@ p {
     padding-bottom: 1rem;
 }
 
+.frequent-list-main-area h2 {
+	font-size: 18px;
+	font-weight: bold;
+}
+
 .frequent-p {
-    font-weight: normal;
+	font-weight: normal;
+	text-align: left;
 }
 
 .dropdown-elements {
