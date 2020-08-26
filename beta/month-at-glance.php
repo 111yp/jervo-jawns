@@ -115,7 +115,7 @@
 
             <div class="ride-data-card shadow">
                <div class="card-img-area">
-                  <img class="card-icon" src="assets/svg/car-building.svg" alt="building">
+                  <img class="card-icon" src="assets/svg/averageCost_ridingData.svg" alt="building">
                </div>
                <div class="card-content-area">
                   <p class="card-title">Average cost per Ride</p>
