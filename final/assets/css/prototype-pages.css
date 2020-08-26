@@ -301,15 +301,17 @@ p {
 
 .frequent-list-main-area {
     border-bottom: #FF80DF 2px solid;
-    padding-bottom: 1rem;
+	padding-bottom: .5rem;
+	width: 100%;
 }
 
 .frequent-list-main-area h2 {
-	font-size: 18px;
+	font-size: 16px;
 	font-weight: bold;
 }
 
 .frequent-p {
+	font-size: 12px;
 	font-weight: normal;
 	text-align: left;
 }
@@ -361,6 +363,7 @@ p {
 	background-color: var(--purple);
 	display: flex;
 	flex-direction: column;
+	justify-content: space-between;
 	padding: .25rem;
 	border-radius: 10px;
 	width: 45%;

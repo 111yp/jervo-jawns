@@ -186,7 +186,7 @@
                if (mysqli_num_rows($result) > 0) {
             ?>
                   <div class="month-box shadow">
-                     <p class="month-box-title"><?php echo $prev_monthName_Full; ?></p>
+                     <p class="month-box-title"><?php echo $prev_monthName_Full.' '.$prev_year; ?></p>
                      <div class="month-box-content">
                         <div class="month-box-top">
                            <p class="month-box-label">Total Rides</p>
@@ -212,7 +212,7 @@
                ?>
 
                   <div class="month-box shadow">
-                     <p class="month-box-title"><?php echo $monthName_Full; ?></p>
+                     <p class="month-box-title"><?php echo $monthName_Full.' '.$year; ?></p>
                      <div class="month-box-content">
                         <div class="month-box-top">
                            <p class="month-box-label">Total Rides</p>
