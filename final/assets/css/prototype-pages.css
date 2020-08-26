@@ -407,6 +407,6 @@ p {
     padding: 1rem 0 0 0;
 }
 
-.chart-bar {
+.chart-bar, .chart-bar-rides-per-month, .chart-bar-common-price-ranges {
     padding: 2rem 0;
 }
