@@ -206,7 +206,7 @@
                ]);
 
                // Optional; add a title and set the width and height of the chart
-               var options = {'title':'Most Common Ride Type', 'width': $(window).width(), 'height':400};
+               var options = {'title':'Most Common Ride Type', 'width': $(window).width()*.8, 'height': $(window).width()*.7, colors: ['#B6D7F4', '#FF80DF']};
 
                // Display the chart inside the <div> element with id="piechart"
                var chart = new google.visualization.PieChart(document.querySelector('.chart-pie'));
@@ -234,7 +234,7 @@
             $row = mysqli_fetch_assoc($result);
          ?>
 
-         <div class="chart-bar shadow" style="height: 300px;"></div>
+         <div class="container chart-bar shadow"></div>
          <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
             <script type="text/javascript">
             google.charts.load('current', {'packages':['bar']});
@@ -251,7 +251,8 @@
                ]);
 
                var options = {
-                  width: $(window).width(),
+                  width: $(window).width()*.7,
+                  height: $(window).width()*.7,
                   legend: { position: 'none' },
                   chart: {
                      title: 'Common price ranges',

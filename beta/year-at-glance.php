@@ -214,7 +214,8 @@
                ]);
 
                var options = {
-                  width: $(window).width(),
+                  width: $(window).width()*.7,
+                  height: $(window).width()*.7,
                   legend: { position: 'none' },
                   chart: {
                      title: 'Rides per month',
@@ -262,7 +263,7 @@
                ]);
 
                // Optional; add a title and set the width and height of the chart
-               var options = {'title':'Most Common Ride Type', 'width': $(window).width(), 'height':400};
+               var options = {'title':'Most Common Ride Type', 'width': $(window).width()*.8, 'height': $(window).width()*.7, colors: ['#B6D7F4', '#FF80DF']};
 
                // Display the chart inside the <div> element with id="piechart"
                var chart = new google.visualization.PieChart(document.querySelector('.chart-pie'));
@@ -307,7 +308,8 @@
                ]);
 
                var options = {
-                  width: $(window).width(),
+                  width: $(window).width()*.7,
+                  height: $(window).width()*.7,
                   legend: { position: 'none' },
                   chart: {
                      title: 'Common price ranges',
