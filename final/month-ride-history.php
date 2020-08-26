@@ -61,6 +61,8 @@
 
          <!-- THE DATA -->
 
+         <div class="container ride-history">
+
          <?php
             $sql =
                "SELECT * FROM ride_data
@@ -73,7 +75,6 @@
                   $new_date = date("M jS", strtotime($orig_date));
          ?>
 
-         <div class="container ride-history">
             <div class="ride-history-card shadow">
                <div class="card-img-area">
                   <img class="card-icon" src="assets/img/driver_profile_pictures/<?php echo $row['driver_img']; ?>" alt="<?php echo $row['driver']; ?>">
@@ -98,10 +99,10 @@
                   <p class="card-price"><?php echo '$'.$row['price']; ?></p>
                </div>
             </div>
+            
+            <?php }} else { echo 'No data to display!'; } ?>
+            
          </div>
-
-         <?php }} else { echo 'No data to display!'; } ?>
-
       </main>
 
    </body>
