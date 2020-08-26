@@ -23,7 +23,7 @@
       <!-- The button you see first -->
          <div class="container dropdown-wrap">
             <div class="dropdown shadow" id="drop">
-               <h1><?php echo $monthRangeName.' '.$year; ?></h1>
+               <h1><?php echo $monthName_3L.' '.$year; ?></h1>
                <img src="assets/svg/down-arrow.svg" id="down-arrow">
             </div>
 
@@ -51,11 +51,11 @@
 
 
          <div class="container">
-            <a class="button shadow" href="month-at-glance.php?month=<?php echo $month ?>&year=<?php echo $year ?>"><?php echo $monthRangeName.' '.$year; ?> Summary</a>
+            <a class="button shadow" href="month-at-glance.php?month=<?php echo $month ?>&year=<?php echo $year ?>"><?php echo $monthName_3L.' '.$year; ?> Summary</a>
          </div>
 
          <div class="container">
-            <h2><?php echo $monthRangeName.' '.$year; ?> Ride History</h2>
+            <h2><?php echo $monthName_3L.' '.$year; ?> Ride History</h2>
          </div>
 
 

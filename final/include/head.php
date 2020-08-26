@@ -22,7 +22,7 @@
     <script src="assets/js/prototype.js" defer></script>
     <!-- add google map stuff on home page-->
     <?php if (isset($is_map)) : ?>
-    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9R5On13YSrCa6eW3qQd7sq3fucZnKiX0&callback=initMap"></script>
+        <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9R5On13YSrCa6eW3qQd7sq3fucZnKiX0&callback=initMap"></script>
     <?php endif ?>
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png">

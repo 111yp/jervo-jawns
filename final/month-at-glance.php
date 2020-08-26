@@ -16,14 +16,14 @@
       <?php // Nav
          $nav_title = 'Ride Data';
          $nav_icon = 'menu_rideData.svg';
-         $nav_back_href = 'month-ride-history.php';
+         $nav_back_href = 'month-ride-history.php?month='.$month.'&'.'year='.$year;
          include_once 'include/nav.php';
       ?>
       <main>
          <!-- The button you see first -->
          <div class="container dropdown-wrap">
             <div class="dropdown shadow" id="drop">
-               <h1><?php echo $monthRangeName.' '.$year; ?></h1>
+               <h1><?php echo $monthName_3L.' '.$year; ?></h1>
                <img src="assets/svg/down-arrow.svg" id="down-arrow">
             </div>
 
@@ -54,7 +54,7 @@
          </div>
 
          <div class="container">
-            <h2><?php echo $monthRangeName.' '.$year; ?>  at a glance</h2>
+            <h2><?php echo $monthName_3L.' '.$year; ?>  at a glance</h2>
          </div>
 
          <!-- THE DATA -->

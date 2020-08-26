@@ -6,6 +6,8 @@
 :root {
 	--forward-gradient: linear-gradient(90deg, rgb(182,215,244) 0%, rgb(255,128,223) 100%);
 	--backward-gradient: linear-gradient(90deg, rgb(255,128,223) 0%, rgb(182,215,244) 100%);
+	--blue: #B8D8F4;
+	--purple: #C8CCF8;
 	/*
 	Use like so:
 	background: var(--forward-gradient);
@@ -64,7 +66,7 @@ nav {
 
 .dropdown {
     width: 200px;
-    border: 3px solid #C8CCF8;
+    border: 3px solid var(--purple);
     background-color: white;
     border-radius: 50px;
     margin: 0 1rem;
@@ -297,7 +299,7 @@ p {
 .dropdown-elements {
 	z-index: 2;
 	width: 200px;
-	border: 3px solid #C8CCF8;
+	border: 3px solid var(--purple);
 	background-color: white;
 	border-top: none;
 	padding-top: 2rem;
@@ -321,4 +323,48 @@ p {
 	border: none;
 	background-color: white;
 	cursor: pointer;
+}
+
+/* Month Boxes */
+
+.month-box-wrap {
+	justify-content: space-between !important;
+}
+
+.month-box * {
+	text-align: left;
+}
+
+.month-box:first-of-type {
+	background-color: var(--blue);
+}
+
+.month-box {
+	background-color: var(--purple);
+	display: flex;
+	flex-direction: column;
+	padding: .25rem;
+	border-radius: 10px;
+	width: 45%;
+}
+
+.month-box-title {
+    padding: .5rem 1rem;
+}
+
+.month-box-content {
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	padding: 1rem;
+	border-radius: 0 0 7px 7px;
+}
+
+.month-box-content div {
+	margin: .5rem 0;
+}
+
+.month-box-label {
+    font-weight: normal;
 }
