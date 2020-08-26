@@ -382,8 +382,8 @@ p {
 	border-radius: 0 0 7px 7px;
 }
 
-.month-box-content div {
-	margin: .5rem 0;
+.month-box-top {
+    margin-bottom: .5rem;
 }
 
 .month-box-label {
