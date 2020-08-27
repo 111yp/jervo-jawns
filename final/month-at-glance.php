@@ -176,7 +176,6 @@
                $result = mysqli_query($connection, $sql);
             ?>
             <!-- Google Pie Chart JS https://developers.google.com/chart/interactive/docs/gallery/piechart -->
-            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
             <script type="text/javascript">
                // Load google charts
                google.charts.load('current', {'packages':['corechart']});
@@ -224,7 +223,6 @@
          ?>
 
          <div class="container chart-bar shadow rounded-corners"></div>
-         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
             <script type="text/javascript">
             google.charts.load('current', {'packages':['bar']});
             google.charts.setOnLoadCallback(drawStuff);

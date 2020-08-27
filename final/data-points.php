@@ -200,7 +200,6 @@
                     <div class="piechart"></div>
                                     
                 <!-- Google Pie Chart JS https://developers.google.com/chart/interactive/docs/gallery/piechart -->
-                    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
                     <script type="text/javascript">
                     // Load google charts
                     google.charts.load('current', {'packages':['corechart']});
@@ -244,8 +243,6 @@
                         $row = mysqli_fetch_assoc($result);
                     ?>
                     <div class="chart-bar" style="width: 800px; height: 600px;"></div>
-
-                    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
                         <script type="text/javascript">
                         google.charts.load('current', {'packages':['bar']});
                         google.charts.setOnLoadCallback(drawStuff);
