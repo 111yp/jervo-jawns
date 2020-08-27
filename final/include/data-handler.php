@@ -16,7 +16,14 @@
     $row = mysqli_fetch_assoc($result);
     
     $min_date = date("Y-n", strtotime($row['min_date']));
+
+    $min_array = explode("-",$min_date);
+    $min_month = $min_array[1];
+    $min_year = $min_array[0];
+
     $max_date = date("Y-n", strtotime($row['max_date']));
+    $max_month = $max_array[1];
+    $max_year = $max_array[0];
     
     echo 'Range = '.$min_date.' thru '.$max_date.'<br>';
     echo 'Input = '.$input_date.'<br>';
@@ -25,8 +32,12 @@
     
     if ($input_date < $min_date) {
         echo 'Too low';
-    } else if ($input_date > $min_date) {
+        $month = $min_month;
+        $year = $min_year;
+    } else if ($input_date > $max_date) {
         echo 'Too High';
+        $month = $max_month;
+        $year = $max_year;
     } else {
         echo 'Its fine';
     }
