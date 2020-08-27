@@ -81,7 +81,7 @@ if (page_title == 'Year at Glance') {
 
   // Wait until chart loads, then call the function after .75 secs just to be sure
   var checkExist = setInterval(function() {
-    if ($('text[data-innerhtml="Apr"]')) {
+    if ($('text[data-innerhtml="Jun"]')) {
       setTimeout(function() {
         checkCharts();
       }, 750);
