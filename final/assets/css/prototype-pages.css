@@ -131,6 +131,7 @@ h2 {
 	font-family: 'Cabin', sans-serif;
 	font-size: 25px;
 	font-weight: bold;
+	width: 100%;
 }
 
 p {
@@ -409,4 +410,10 @@ p {
 
 .chart-bar, .chart-bar-rides-per-month, .chart-bar-common-price-ranges {
     padding: 2rem 0;
+}
+
+/* Chart Titles */
+
+.chart-title h2 {
+	font-size: 16px;
 }

@@ -229,7 +229,7 @@
          </div>
          
          <!-- Rides per month -->
-         <div class="container">
+         <div class="container chart-title">
             <h2>Rides per month</h2>
          </div>
 
@@ -282,7 +282,7 @@
          </script>
          
          <!-- Most common ride type -->
-         <div class="container">
+         <div class="container chart-title">
             <h2>Most common ride type</h2>
          </div>
 
@@ -321,7 +321,7 @@
          </div>
             
          <!-- Common price ranges -->
-         <div class="container">
+         <div class="container chart-title">
             <h2>Common price ranges</h2>
          </div>
 
@@ -376,7 +376,7 @@
                };
          </script>
 
-         <div class="container"> <!-- Frequently visited locations -->
+         <div class="container chart-title"> <!-- Frequently visited locations -->
             <h2>Frequently visited locations</h2>
          </div>
             
