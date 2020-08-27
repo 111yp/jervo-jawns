@@ -6,54 +6,34 @@
         $month = $_GET['month'];
         $year = $_GET['year'];
     }
+    
+    // $input_date = date("Y-n", strtotime('0-'.($month+1).'-'.$year));
+    
+    // // Set min and max date ranges
+    
+    // $sql = "SELECT MIN(date) AS min_date, MAX(date) AS max_date FROM ride_data;";
+    // $result = mysqli_query($connection, $sql);
+    // $row = mysqli_fetch_assoc($result);
+    
+    // $min_date = date("Y-n", strtotime($row['min_date']));
+    // $max_date = date("Y-n", strtotime($row['max_date']));
+    
+    // echo 'Range = '.$min_date.' thru '.$max_date.'<br>';
+    // echo 'Input = '.$input_date.'<br>';
 
-    // Get min date range
-
-    $sql = "SELECT MONTH(date) AS min_month, YEAR(date) AS min_year FROM ride_data ORDER BY date ASC LIMIT 1";
-    $result = mysqli_query($connection, $sql);
-    $row = mysqli_fetch_assoc($result);
-
-    $min_month = $row['min_month'];
-    $min_year = $row['min_year'];
-
-    // Get max date range
-
-    $sql = "SELECT MONTH(date) AS max_month, YEAR(date) AS max_year FROM ride_data ORDER BY date DESC LIMIT 1";
-    $result = mysqli_query($connection, $sql);
-    $row = mysqli_fetch_assoc($result);
-
-    // Set the min & max variables
-
-    $max_month = $row['max_month'];
-    $max_year = $row['max_year'];
-
+    // // Check the input vs the range
+    
+    // if ($input_date < $min_date) {
+    //     echo 'Too low';
+    // } else if ($input_date > $min_date) {
+    //     echo 'Too High';
+    // } else {
+    //     echo 'Its fine';
+    // }
+    
     // Check if inputted date is below table data range, if not, set it to minimum range + 1 month
-
-    if ($page_title == 'Year at Glance') {
-        if ($month == $min_month && $year == $min_year) { // If under min range
-            $prev_change = 1;
-            $month = $min_month + $prev_change;
-            $year = $min_year;
-        } else {
-            $prev_change = 0;
-        }
     
-        // Ensure proper previous month format
-    
-        if ($month == 1) { // If the inputted month is Jan, ensure correct format by setting prev month 12 and prev year to input year - 1
-            $prev_month = 12;
-            $prev_year = $year - 1;
-        } else { // If the month is not Jan, just subtract 1 month, keep prev year the same
-            $prev_month = $month - 1;
-            $prev_year = $year;
-        }
-        
-        $prev_monthObj   = DateTime::createFromFormat('!m', $prev_month); // Turns month # into object, '!m' declares it as a month type
-        $prev_monthName_3L = $prev_monthObj->format('M'); // Converts object into name, 'M' is the format for a 3 letter month name, 'F' is full name
-        $prev_monthName_Full = $prev_monthObj->format('F'); // Converts object into name, 'M' is the format for a 3 letter month name, 'F' is full name
-    }
-
-    $monthObj   = DateTime::createFromFormat('!m', $month); // Turns month # into object, '!m' declares it as a month type
+    $monthObj = DateTime::createFromFormat('!m', $month); // Turns month # into object, '!m' declares it as a month type
     $monthName_3L = $monthObj->format('M'); // Converts object into name, 'M' is the format for a 3 letter month name, 'F' is full name
     $monthName_Full = $monthObj->format('F'); // Converts object into name, 'M' is the format for a 3 letter month name, 'F' is full name
 ?>

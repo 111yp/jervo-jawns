@@ -16,7 +16,7 @@
       <?php // Nav
          $nav_title = 'Ride Data';
          $nav_icon = 'menu_rideData.svg';
-         $nav_back_href = 'month-at-glance.php?month='.($month + ($prev_change * -1)).'&'.'year='.$year;
+         $nav_back_href = 'month-at-glance.php?month='.$month.'&'.'year='.$year;
          include_once 'include/nav.php';
       ?>
       <main>
@@ -176,61 +176,6 @@
          <div class="container">
             <h2><?php echo $year; ?> monthly data</h2>
          </div>
-
-         <!-- Recent Month Boxes -->
-         
-         <div class="container month-box-wrap">
-            <?php
-               $sql = "SELECT  COUNT(ride_id) AS value_sum, SUM(price) AS price_sum
-               FROM     ride_data
-               WHERE    YEAR(date) = $year AND MONTH(date) = $month;";
-               $result = mysqli_query($connection, $sql);
-               $row = mysqli_fetch_assoc($result);
-
-               if (mysqli_num_rows($result) > 0) {
-            ?>
-                  <div class="month-box shadow">
-                     <p class="month-box-title"><?php echo $prev_monthName_Full.' '.$prev_year; ?></p>
-                     <div class="month-box-content">
-                        <div class="month-box-top">
-                           <p class="month-box-label">Total Rides</p>
-                           <p class="month-box-values"><?php echo $row['value_sum']; ?></p>
-                        </div>
-                        <div class="month-box-btm">
-                           <p class="month-box-label">Total Spent</p>
-                           <p class="month-box-values">$<?php echo $row['price_sum']; ?></p>
-                        </div>
-                     </div>
-                  </div>
-
-               <?php
-               }
-
-                  $sql = "SELECT  COUNT(ride_id) AS value_sum, SUM(price) AS price_sum
-                     FROM     ride_data
-                     WHERE    YEAR(date) = $prev_year AND MONTH(date) = $prev_month;";
-                     $result = mysqli_query($connection, $sql);
-                     $row = mysqli_fetch_assoc($result);
-
-                  if (mysqli_num_rows($result) > 0) {
-               ?>
-
-                  <div class="month-box shadow">
-                     <p class="month-box-title"><?php echo $monthName_Full.' '.$year; ?></p>
-                     <div class="month-box-content">
-                        <div class="month-box-top">
-                           <p class="month-box-label">Total Rides</p>
-                           <p class="month-box-values"><?php echo $row['value_sum']; ?></p>
-                        </div>
-                        <div class="month-box-btm">
-                           <p class="month-box-label">Total Spent</p>
-                           <p class="month-box-values">$<?php echo $row['price_sum']; ?></p>
-                        </div>
-                     </div>
-                  </div>
-
-            <?php } ?>
-         </div>
          
          <!-- Rides per month -->
          <div class="container chart-title">
@@ -239,7 +184,7 @@
 
          <?php
             $sql =
-               "SELECT COUNT(ride_id) AS month_sum, month(date) AS mnth FROM ride_data WHERE YEAR(date) = 2020 GROUP BY month(date);";
+               "SELECT COUNT(ride_id) AS month_sum, month(date) AS mnth FROM ride_data WHERE YEAR(date) = $year GROUP BY month(date);";
             $result = mysqli_query($connection, $sql);
          ?>
 
@@ -330,11 +275,10 @@
          <?php
             $sql =
                "SELECT 
-               SUM(CASE WHEN price BETWEEN 1  AND 5  THEN 1 ELSE 0 END) AS '1-5',
-               SUM(CASE WHEN price BETWEEN 6  AND 10 THEN 1 ELSE 0 END) AS '6-10',
-               SUM(CASE WHEN price BETWEEN 11 AND 15 THEN 1 ELSE 0 END) AS '11-15',
-               SUM(CASE WHEN price BETWEEN 16 AND 20 THEN 1 ELSE 0 END) AS '16-20',
-               SUM(CASE WHEN price >= 20 THEN 1 ELSE 0 END) AS '20+'
+               SUM(CASE WHEN price BETWEEN 1  AND 5  THEN 1 ELSE 0 END) AS '1-10',
+               SUM(CASE WHEN price BETWEEN 6  AND 10 THEN 1 ELSE 0 END) AS '10-20',
+               SUM(CASE WHEN price BETWEEN 11 AND 15 THEN 1 ELSE 0 END) AS '20-30',
+               SUM(CASE WHEN price >= 30             THEN 1 ELSE 0 END) AS '30+'
                FROM ride_data
                WHERE YEAR(date) = $year;";
             $result = mysqli_query($connection, $sql);
@@ -349,11 +293,10 @@
             function drawStuff_common_price_ranges() {
                var data = new google.visualization.arrayToDataTable([
                   ['Price Range', 'Rides in this Range'],
-                  ["$1-5", <?php echo $row['1-5']; ?>],
-                  ["$6-10", <?php echo $row['6-10']; ?>],
-                  ["$11-15", <?php echo $row['11-15']; ?>],
-                  ["$16-20", <?php echo $row['16-20']; ?>],
-                  ["$20+", <?php echo $row['20+']; ?>]
+                  ["$1-10", <?php echo $row['1-10']; ?>],
+                  ["$10-20", <?php echo $row['10-20']; ?>],
+                  ["$20-30", <?php echo $row['20-30']; ?>],
+                  ["$30+", <?php echo $row['30+']; ?>]
                ]);
 
                var options = {

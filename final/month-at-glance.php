@@ -211,11 +211,10 @@
          <?php
             $sql =
                "SELECT 
-               SUM(CASE WHEN price BETWEEN 1  AND 5  THEN 1 ELSE 0 END) AS '1-5',
-               SUM(CASE WHEN price BETWEEN 6  AND 10 THEN 1 ELSE 0 END) AS '6-10',
-               SUM(CASE WHEN price BETWEEN 11 AND 15 THEN 1 ELSE 0 END) AS '11-15',
-               SUM(CASE WHEN price BETWEEN 16 AND 20 THEN 1 ELSE 0 END) AS '16-20',
-               SUM(CASE WHEN price >= 20 THEN 1 ELSE 0 END) AS '20+'
+               SUM(CASE WHEN price BETWEEN 1  AND 5  THEN 1 ELSE 0 END) AS '1-10',
+               SUM(CASE WHEN price BETWEEN 6  AND 10 THEN 1 ELSE 0 END) AS '10-20',
+               SUM(CASE WHEN price BETWEEN 11 AND 15 THEN 1 ELSE 0 END) AS '20-30',
+               SUM(CASE WHEN price >= 30             THEN 1 ELSE 0 END) AS '30+'
                FROM ride_data
                WHERE MONTH(date) = $month AND YEAR(date) = $year;";
             $result = mysqli_query($connection, $sql);
@@ -229,12 +228,11 @@
 
             function drawStuff() {
                var data = new google.visualization.arrayToDataTable([
-                  ['Range', 'Occurrence'],
-                  ["$1-5", <?php echo $row['1-5']; ?>],
-                  ["$6-10", <?php echo $row['6-10']; ?>],
-                  ["$11-15", <?php echo $row['11-15']; ?>],
-                  ["$16-20", <?php echo $row['16-20']; ?>],
-                  ["$20+", <?php echo $row['20+']; ?>]
+                  ['Price Range', 'Rides in this Range'],
+                  ["$1-10", <?php echo $row['1-10']; ?>],
+                  ["$10-20", <?php echo $row['10-20']; ?>],
+                  ["$20-30", <?php echo $row['20-30']; ?>],
+                  ["$30+", <?php echo $row['30+']; ?>]
                ]);
 
                var options = {
