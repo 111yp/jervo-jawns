@@ -20,6 +20,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" defer></script>
     <script src="assets/js/main.js" defer></script>
     <script src="assets/js/prototype.js" defer></script>
+    <script>const page_title = '<?php echo $page_title ?>';</script>
     <!-- add google map stuff on home page-->
     <?php if (isset($is_map)) :
         include_once 'include/key.php';
