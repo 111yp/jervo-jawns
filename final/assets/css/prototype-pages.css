@@ -258,6 +258,7 @@ p {
 	justify-content: center;
 	flex-direction: column;
 	width: -webkit-fill-available;
+	width: 100%;
 	border-radius: 0 .25rem .25rem 0;
 	background-color: white;
 	padding: 0.5rem .75rem;
