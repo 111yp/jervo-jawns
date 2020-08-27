@@ -16,7 +16,7 @@
       <?php // Nav
          $nav_title = 'Ride Data';
          $nav_icon = 'menu_rideData.svg';
-         $nav_back_href = 'month-at-glance.php?month='.$month.'&'.'year='.$year;
+         $nav_back_href = 'month-at-glance.php?month='.($month + ($prev_change * -1)).'&'.'year='.$year;
          include_once 'include/nav.php';
       ?>
       <main>
@@ -38,7 +38,7 @@
                   while ($row = mysqli_fetch_assoc($result)) {
             ?>
                <form target="_self" method="GET">
-               <input name="month" value="1" hidden> <!-- Input is hidden, no need to style, do not edit value -->
+               <input name="month" value="<?php echo $month; ?>" hidden> <!-- Input is hidden, no need to style, do not edit value -->
                   <button type="submit" name="year" value="<?php echo $row['year']; ?>"><?php echo $row['year']; ?></button>
                </form>
 
@@ -194,7 +194,7 @@
                         </div>
                         <div class="month-box-btm">
                            <p class="month-box-label">Total Spent</p>
-                           <p class="month-box-values"><?php echo $row['price_sum']; ?></p>
+                           <p class="month-box-values">$<?php echo $row['price_sum']; ?></p>
                         </div>
                      </div>
                   </div>
@@ -220,7 +220,7 @@
                         </div>
                         <div class="month-box-btm">
                            <p class="month-box-label">Total Spent</p>
-                           <p class="month-box-values"><?php echo $row['price_sum']; ?></p>
+                           <p class="month-box-values">$<?php echo $row['price_sum']; ?></p>
                         </div>
                      </div>
                   </div>
@@ -407,6 +407,6 @@
             </div> <!-- END OF CONTAINER -->
          
       </main>
-
+      <?php include_once 'include/footer.php'; ?>
    </body>
 </html>

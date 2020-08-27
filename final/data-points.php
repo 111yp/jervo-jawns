@@ -448,8 +448,6 @@
     .frequent-nums {
         color: blue;
     }
-
-
-
+    <?php include_once 'include/footer.php'; ?>
 </style>
 </html>
