@@ -239,7 +239,7 @@
             $result = mysqli_query($connection, $sql);
          ?>
 
-         <div class="container chart-bar-rides-per-month shadow rounded-corners" style="height: 300px;"></div>
+         <div class="container chart-bar-rides-per-month shadow rounded-corners"></div>
          <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
             <script type="text/javascript">
             google.charts.load('current', {'packages':['bar']});
@@ -339,7 +339,7 @@
             $row = mysqli_fetch_assoc($result);
          ?>
 
-         <div class="container chart-bar-common-price-ranges shadow rounded-corners" style="height: 300px;"></div>
+         <div class="container chart-bar-common-price-ranges shadow rounded-corners"></div>
          <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
             <script type="text/javascript">
             google.charts.load('current', {'packages':['bar']});
