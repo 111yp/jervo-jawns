@@ -7,7 +7,12 @@
         $year = $_GET['year'];
     }
     
-    $input_date = date("Y-n", strtotime('0-'.($month+1).'-'.$year));
+    //note that strtotime returns european date format (dd-mm-yyyy) when you use the dash seperator
+    // https://www.php.net/manual/en/function.strtotime.php#100144
+    $input_date = date("Y-m", strtotime('01-'.($month).'-'.$year));
+
+    //a test giving the right date
+    //echo (date("d m, Y", strtotime("11-12-2010"))."<br>");
     
     // Set min and max date ranges
     
@@ -15,18 +20,17 @@
     $result = mysqli_query($connection, $sql);
     $row = mysqli_fetch_assoc($result);
     
-    $min_date = date("Y-n", strtotime($row['min_date']));
+    $min_date = date("Y-m", strtotime($row['min_date']));
 
     $min_array = explode("-",$min_date);
     $min_month = $min_array[1];
     $min_year = $min_array[0];
 
-    $max_date = date("Y-n", strtotime($row['max_date']));
+    $max_date = date("Y-m", strtotime($row['max_date']));
+
+    $max_array = explode("-",$min_date);
     $max_month = $max_array[1];
     $max_year = $max_array[0];
-    
-    echo 'Range = '.$min_date.' thru '.$max_date.'<br>';
-    echo 'Input = '.$input_date.'<br>';
 
     // Check the input vs the range
     
@@ -35,7 +39,7 @@
         $month = $min_month;
         $year = $min_year;
     } else if ($input_date > $max_date) {
-        echo 'Too High';
+        echo 'Too High <br>';
         $month = $max_month;
         $year = $max_year;
     } else {
