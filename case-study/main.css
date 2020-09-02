@@ -42,6 +42,7 @@
 
 video {
     margin: 1rem;
+    z-index: -1;
 }
 
 .gallery img {
