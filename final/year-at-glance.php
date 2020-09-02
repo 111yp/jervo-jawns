@@ -2,8 +2,8 @@
    $page_title = 'Year at Glance';
    $page_specific_style = 'assets/css/prototype-pages.css';
    include_once 'include/head.php';
-
    include_once 'include/data-handler.php'; // Only for data pages
+   $rememberyear = $_GET['rememberyear'];
 ?>
    <body>
 
@@ -16,7 +16,7 @@
       <?php // Nav
          $nav_title = 'Ride Data';
          $nav_icon = 'menu_rideData.svg';
-         $nav_back_href = 'month-at-glance.php?month='.$month.'&'.'year='.$year;
+         $nav_back_href = 'month-at-glance.php?month='.$month.'&year='.$rememberyear;
          include_once 'include/nav.php';
       ?>
       <main>
@@ -39,6 +39,7 @@
             ?>
                <form target="_self" method="GET">
                <input name="month" value="<?php echo $month; ?>" hidden> <!-- Input is hidden, no need to style, do not edit value -->
+               <input name="rememberyear" value="<?php echo $rememberyear; ?>" hidden> <!-- Input is hidden, no need to style, do not edit value -->
                   <button type="submit" name="year" value="<?php echo $row['year']; ?>"><?php echo $row['year']; ?></button>
                </form>
 

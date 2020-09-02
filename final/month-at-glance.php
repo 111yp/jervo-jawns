@@ -2,7 +2,6 @@
    $page_title = 'Month at Glance';
    $page_specific_style = 'assets/css/prototype-pages.css';
    include_once 'include/head.php';
-
    include_once 'include/data-handler.php'; // Only for data pages
 ?>
    <body>
@@ -50,7 +49,8 @@
          </div>
 
          <div class="container">
-            <a class="button shadow" href="year-at-glance.php?month=<?php echo $month ?>&year=<?php echo $year ?>"><?php echo $year; ?> Summary</a>
+            <a class="button shadow" href="year-at-glance.php?month=<?php echo $month ?>&year=<?php echo $year ?>&rememberyear=<?php echo $year;
+                ?>"><?php echo $year?> Summary</a>
          </div>
 
          <div class="container">
