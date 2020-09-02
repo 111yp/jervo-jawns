@@ -15,7 +15,7 @@
       <?php // Nav
          $nav_title = 'Ride Data';
          $nav_icon = 'menu_rideData.svg';
-         $nav_back_href = 'month-ride-history.php?month='.$month.'&'.'year='.$year;
+         $nav_back_href = 'month-ride-history.php?month='.$month.'&year='.$year;
          include_once 'include/nav.php';
       ?>
       <main>
@@ -50,7 +50,7 @@
 
          <div class="container">
             <a class="button shadow" href="year-at-glance.php?month=<?php echo $month ?>&year=<?php echo $year ?>&rememberyear=<?php echo $year;
-                ?>"><?php echo $year?> Summary</a>
+               ?>"><?php echo $year; ?> Summary</a>
          </div>
 
          <div class="container">
