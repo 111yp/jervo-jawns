@@ -191,6 +191,7 @@ p {
 .ride-history-card .card-title {
 	font-size: 12px;
 	font-weight: bold;
+	padding-bottom: 5px;
 }
 
 .card-pickup, .card-mid-top {
