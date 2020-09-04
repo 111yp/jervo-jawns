@@ -26,7 +26,6 @@
     }
 }
 
-
 .gallery .grid-display {
     width: 70%;
     overflow: hidden;
@@ -42,6 +41,7 @@
 
 video {
     margin: 1rem;
+    max-height: 90vh;
 }
 
 .gallery img {
